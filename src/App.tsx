@@ -275,12 +275,13 @@ function ToolsFlowBanner() {
     { name: "Netflix", icon: "https://cdn.simpleicons.org/netflix/E50914", bg: "bg-red-50" },
   ];
 
-  // Repeat for continuous infinite seamless track on both flanks
+  // For left side, reversed so items glide seamlessly into P without gap
+  const reversedIcons = [...streamIcons].reverse();
   const leftTrack = [
-    ...streamIcons,
-    ...streamIcons,
-    ...streamIcons,
-    ...streamIcons,
+    ...reversedIcons,
+    ...reversedIcons,
+    ...reversedIcons,
+    ...reversedIcons,
   ];
 
   const rightTrack = [
@@ -295,9 +296,9 @@ function ToolsFlowBanner() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="relative flex items-center justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white/80 py-5 sm:py-6 shadow-sm backdrop-blur-md">
           
-          {/* Left Wing: Cards flowing continuously from left INTO the center P icon */}
+          {/* Left Wing: Packed from the center P icon to the left, seamlessly gliding right into P */}
           <div className="w-1/2 overflow-hidden flex justify-end [mask-image:linear-gradient(to_right,transparent,black_20%,black_100%)]">
-            <div className="animate-inflow-left flex items-center gap-3.5 sm:gap-5 pr-4 sm:pr-8">
+            <div className="animate-inflow-left flex items-center gap-3.5 sm:gap-5 pr-2">
               {leftTrack.map((item, idx) => (
                 <div
                   key={`left-in-${idx}`}
@@ -310,8 +311,8 @@ function ToolsFlowBanner() {
             </div>
           </div>
 
-          {/* Stable Center Brand P Icon receiving tools from both sides */}
-          <div className="relative z-30 shrink-0 flex items-center justify-center mx-1 sm:mx-3">
+          {/* Stable Center Brand P Icon receiving tools from both flanks */}
+          <div className="relative z-30 shrink-0 flex items-center justify-center mx-1 sm:mx-2">
             {/* Soft glowing aura behind the icon */}
             <div className="pointer-events-none absolute size-24 rounded-full bg-teal-400/35 blur-xl" />
             
@@ -328,9 +329,9 @@ function ToolsFlowBanner() {
             </div>
           </div>
 
-          {/* Right Wing: Cards flowing continuously from right INTO the center P icon */}
+          {/* Right Wing: Packed from the center P icon to the right, seamlessly gliding left into P */}
           <div className="w-1/2 overflow-hidden flex justify-start [mask-image:linear-gradient(to_left,transparent,black_20%,black_100%)]">
-            <div className="animate-inflow-right flex items-center gap-3.5 sm:gap-5 pl-4 sm:pr-8">
+            <div className="animate-inflow-right flex items-center gap-3.5 sm:gap-5 pl-2">
               {rightTrack.map((item, idx) => (
                 <div
                   key={`right-in-${idx}`}

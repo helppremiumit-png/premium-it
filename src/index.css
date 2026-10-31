@@ -81,28 +81,28 @@ a {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
 
-/* Continuous dual inflow towards center P icon without any blank gap */
-/* Left side: moves rightwards towards center */
-@keyframes left-inflow-seamless {
+/* Perfect Seamless Dual Inward Marquee Flow */
+/* Left side: Starts with 0 right offset (touching P icon immediately) and smoothly glides to the right into P */
+@keyframes left-inward-flow {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(0%);
+    transform: translateX(50%);
   }
 }
 
 .animate-inflow-left {
   display: flex;
   width: max-content;
-  animation: left-inflow-seamless 20s linear infinite;
+  animation: left-inward-flow 18s linear infinite;
   will-change: transform;
 }
 
-/* Right side: moves leftwards towards center */
-@keyframes right-inflow-seamless {
+/* Right side: Starts right at 0 offset (touching P icon immediately) and smoothly glides to the left into P */
+@keyframes right-inward-flow {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
@@ -112,7 +112,7 @@ a {
 .animate-inflow-right {
   display: flex;
   width: max-content;
-  animation: right-inflow-seamless 20s linear infinite;
+  animation: right-inward-flow 18s linear infinite;
   will-change: transform;
 }
 
