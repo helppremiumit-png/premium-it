@@ -81,54 +81,40 @@ a {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
 
-/* Lipika-style Infinite Marquee Animation flowing towards center */
-@keyframes stream-left-to-center {
+/* True Seamless Infinite Marquee Track (Left to Right / Inflow) */
+@keyframes continuous-marquee {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(0%);
+    transform: translateX(-50%);
   }
 }
 
-@keyframes stream-right-to-center {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-.animate-stream-left {
+.animate-marquee-infinite {
   display: flex;
   width: max-content;
-  animation: stream-left-to-center 22s linear infinite;
+  animation: continuous-marquee 28s linear infinite;
+  will-change: transform;
 }
 
-.animate-stream-right {
-  display: flex;
-  width: max-content;
-  animation: stream-right-to-center 22s linear infinite;
-}
-
-/* Gentle pulse and glow for central brand P icon */
+/* Central subtle pulse for P icon */
 @keyframes center-pulse-glow {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 25px rgba(13, 148, 136, 0.4), 0 0 50px rgba(13, 148, 136, 0.25);
+    box-shadow: 0 0 15px rgba(13, 148, 136, 0.35), 0 0 30px rgba(13, 148, 136, 0.2);
   }
   50% {
-    transform: scale(1.06);
-    box-shadow: 0 0 35px rgba(13, 148, 136, 0.7), 0 0 70px rgba(13, 148, 136, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(13, 148, 136, 0.55), 0 0 45px rgba(13, 148, 136, 0.3);
   }
 }
 
 .animate-center-pulse {
-  animation: center-pulse-glow 2.8s ease-in-out infinite;
+  animation: center-pulse-glow 2.5s ease-in-out infinite;
 }
 
-/* Subtle orb rotation aura behind center logo */
+/* Gentle dashed orbit rotation behind center logo */
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -139,5 +125,5 @@ a {
 }
 
 .animate-spin-slow {
-  animation: spin-slow 16s linear infinite;
+  animation: spin-slow 14s linear infinite;
 }

@@ -275,24 +275,28 @@ function ToolsFlowBanner() {
     { name: "Netflix", icon: "https://cdn.simpleicons.org/netflix/E50914", bg: "bg-red-50" },
   ];
 
-  const repeatedStream = [...streamIcons, ...streamIcons, ...streamIcons];
+  // Repeat for continuous seamless infinite loop with zero blank gap
+  const continuousList = [
+    ...streamIcons,
+    ...streamIcons,
+    ...streamIcons,
+    ...streamIcons,
+    ...streamIcons,
+    ...streamIcons,
+  ];
 
   return (
-    <section className="relative overflow-hidden py-10 my-4 bg-gradient-to-b from-transparent via-slate-200/50 to-transparent">
+    <section className="relative overflow-hidden py-6 my-2 bg-gradient-to-b from-transparent via-slate-200/40 to-transparent">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="relative flex items-center justify-center overflow-hidden rounded-3xl border border-slate-200/90 bg-white/70 py-6 sm:py-8 shadow-sm backdrop-blur-md">
+        <div className="relative flex items-center justify-center overflow-hidden rounded-3xl border border-slate-200/90 bg-white/80 py-5 sm:py-6 shadow-sm backdrop-blur-md">
           
-          {/* Subtle glowing halo behind the center badge */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-48 rounded-full bg-teal-300/30 blur-2xl" />
-          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-28 rounded-full bg-teal-500/20 blur-xl" />
-
-          {/* Left tools streaming inward toward the center logo */}
-          <div className="flex-1 overflow-hidden flex justify-end [mask-image:linear-gradient(to_right,transparent,black_25%,black_85%,transparent)]">
-            <div className="animate-stream-left flex items-center gap-3.5 sm:gap-5 pr-4">
-              {repeatedStream.map((item, idx) => (
+          {/* Continuous Infinite Track flowing non-stop behind/through the center */}
+          <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="animate-marquee-infinite flex items-center gap-4 sm:gap-6">
+              {continuousList.map((item, idx) => (
                 <div
-                  key={`left-${idx}`}
-                  className={`${item.bg} flex size-12 sm:size-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 p-2.5 shadow-sm transition-transform hover:scale-110`}
+                  key={`tool-${idx}`}
+                  className={`${item.bg} flex size-11 sm:size-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200/90 p-2 shadow-sm transition-transform hover:scale-110`}
                   title={item.name}
                 >
                   <img alt={item.name} className="size-full object-contain" src={item.icon} />
@@ -301,33 +305,21 @@ function ToolsFlowBanner() {
             </div>
           </div>
 
-          {/* Central Official P Logo receiving the tools */}
-          <div className="relative z-10 mx-2 sm:mx-6 shrink-0">
-            {/* Spinning decorative ring */}
-            <div className="animate-spin-slow pointer-events-none absolute -inset-2.5 rounded-full border-2 border-dashed border-teal-500/40" />
+          {/* Central Official P Logo - perfectly proportioned (slightly smaller as requested) */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+            {/* Glowing background halo */}
+            <div className="absolute size-28 rounded-full bg-teal-400/35 blur-xl" />
             
-            {/* Center P Badge */}
-            <div className="animate-center-pulse relative flex size-16 sm:size-20 items-center justify-center rounded-3xl bg-slate-950 p-2 shadow-2xl ring-4 ring-white">
+            {/* Spinning decorative orbit ring */}
+            <div className="animate-spin-slow absolute size-16 sm:size-18 rounded-full border border-dashed border-teal-500/60" />
+            
+            {/* Center P Icon Badge - perfectly compact size */}
+            <div className="animate-center-pulse relative flex size-12 sm:size-14 items-center justify-center rounded-2xl bg-slate-950 p-1.5 shadow-xl ring-4 ring-white/90">
               <img
                 alt="PÏ€emium-IT Official Brand Icon"
                 className="size-full object-contain"
                 src="./brand/premium-it-logo.png"
               />
-            </div>
-          </div>
-
-          {/* Right tools streaming inward toward the center logo */}
-          <div className="flex-1 overflow-hidden flex justify-start [mask-image:linear-gradient(to_left,transparent,black_25%,black_85%,transparent)]">
-            <div className="animate-stream-right flex items-center gap-3.5 sm:gap-5 pl-4">
-              {repeatedStream.map((item, idx) => (
-                <div
-                  key={`right-${idx}`}
-                  className={`${item.bg} flex size-12 sm:size-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 p-2.5 shadow-sm transition-transform hover:scale-110`}
-                  title={item.name}
-                >
-                  <img alt={item.name} className="size-full object-contain" src={item.icon} />
-                </div>
-              ))}
             </div>
           </div>
 
