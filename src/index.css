@@ -81,6 +81,52 @@ a {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
 
+/* Animated Glowing Border Beam for Role Switcher */
+@keyframes border-beam-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.border-beam-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 1.5px;
+  display: inline-flex;
+}
+
+.border-beam-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 180deg,
+    #0d9488 240deg,
+    #2563eb 300deg,
+    #38bdf8 340deg,
+    transparent 360deg
+  );
+  animation: border-beam-spin 3.5s linear infinite;
+  z-index: 0;
+}
+
+.border-beam-inner {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 /* Perfect Seamless Dual Inward Marquee Flow */
 @keyframes left-inward-flow {
   0% {

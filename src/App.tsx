@@ -360,17 +360,53 @@ function ToolsFlowBanner() {
   );
 }
 
+function RoleSwitcher() {
+  const roles = [
+    "Student",
+    "Developer",
+    "Researcher",
+    "Writer",
+    "Video Editor",
+    "Designer",
+    "Doctor",
+    "Professional",
+  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % roles.length);
+    }, 2400);
+    return () => clearInterval(timer);
+  }, [roles.length]);
+
+  return (
+    <div className="mb-5 flex flex-wrap items-center gap-2 text-sm sm:text-base font-extrabold text-slate-700">
+      <span className="text-slate-500">Built for every</span>
+      <div className="border-beam-container shadow-sm">
+        <div className="border-beam-inner flex items-center justify-center px-4 py-1.5 transition-all">
+          <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent font-black tracking-wide text-sm sm:text-base transition-all duration-300">
+            {roles[index]}
+          </span>
+        </div>
+      </div>
+      <span className="text-slate-500">& professional</span>
+    </div>
+  );
+}
+
 function HomePage({ navigate }: { navigate: (page: Page) => void }) {
   return (
     <main>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-200" />
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-10 pb-16 lg:grid-cols-2 lg:px-8 lg:pt-14 lg:pb-20">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-bold text-teal-800 shadow-sm">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs sm:text-sm font-bold text-teal-800 shadow-sm">
               <span className="size-2 rounded-full bg-emerald-500" />
               Trusted digital shop in Bangladesh
             </div>
+            <RoleSwitcher />
             <h1 className="max-w-2xl text-5xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
               Premium tools.
               <span className="block text-teal-600">Smarter possibilities.</span>
