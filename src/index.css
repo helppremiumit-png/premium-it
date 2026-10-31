@@ -81,7 +81,7 @@ a {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
 
-/* Animated Glowing Border Beam for Role Switcher */
+/* Animated Glowing Border Beam matching Website Dark Slate & Teal Brand Colors */
 @keyframes border-beam-spin {
   0% {
     transform: rotate(0deg);
@@ -95,7 +95,7 @@ a {
   position: relative;
   overflow: hidden;
   border-radius: 9999px;
-  padding: 1.5px;
+  padding: 2px;
   display: inline-flex;
 }
 
@@ -109,13 +109,13 @@ a {
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    transparent 180deg,
-    #0d9488 240deg,
-    #2563eb 300deg,
-    #38bdf8 340deg,
+    transparent 160deg,
+    #0d9488 230deg,
+    #0284c7 280deg,
+    #0f172a 330deg,
     transparent 360deg
   );
-  animation: border-beam-spin 3.5s linear infinite;
+  animation: border-beam-spin 3.2s linear infinite;
   z-index: 0;
 }
 
@@ -124,7 +124,7 @@ a {
   z-index: 1;
   background: #ffffff;
   border-radius: 9999px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
 }
 
 /* Perfect Seamless Dual Inward Marquee Flow */

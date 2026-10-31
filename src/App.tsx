@@ -381,16 +381,16 @@ function RoleSwitcher() {
   }, [roles.length]);
 
   return (
-    <div className="mb-5 flex flex-wrap items-center gap-2 text-sm sm:text-base font-extrabold text-slate-700">
-      <span className="text-slate-500">Built for every</span>
-      <div className="border-beam-container shadow-sm">
-        <div className="border-beam-inner flex items-center justify-center px-4 py-1.5 transition-all">
-          <span className="bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent font-black tracking-wide text-sm sm:text-base transition-all duration-300">
+    <div className="mb-6 flex flex-wrap items-center gap-2.5 text-base sm:text-lg font-bold text-slate-600">
+      <span className="text-slate-500 font-semibold">Built for every</span>
+      <div className="border-beam-container shadow-md">
+        <div className="border-beam-inner flex min-w-[150px] sm:min-w-[180px] items-center justify-center px-6 py-2 sm:py-2.5 transition-all">
+          <span className="text-slate-950 font-black tracking-tight text-lg sm:text-xl transition-all duration-300">
             {roles[index]}
           </span>
         </div>
       </div>
-      <span className="text-slate-500">& professional</span>
+      <span className="text-slate-500 font-semibold">& professional</span>
     </div>
   );
 }
