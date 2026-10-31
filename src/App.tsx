@@ -1,4 +1,4 @@
-﻿import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 
 type Page = "home" | "products" | "reviews";
 
@@ -8,8 +8,6 @@ type Product = {
   icon: string;
   accent: string;
   description: string;
-  category?: string;
-  popular?: boolean;
 };
 
 type Review = {
@@ -29,68 +27,63 @@ const products: Product[] = [
     price: 450,
     icon: "/logos/openai.svg",
     accent: "bg-emerald-50",
-    description: "Advanced AI access for smarter writing, research, coding, and everyday productivity.",
-    popular: true,
+    description: "Advanced AI access for smarter writing, research, and everyday productivity.",
   },
   {
-    name: "Gemini Advanced",
+    name: "Gemini",
     price: 699,
     icon: "https://cdn.simpleicons.org/googlegemini/8E75F7",
     accent: "bg-violet-50",
-    description: "Google's 2M context AI assistant for multimodal workflow, planning, and creative work.",
-    popular: true,
+    description: "Google's powerful AI assistant for ideas, planning, and creative work.",
   },
   {
     name: "SuperGrok",
     price: 1799,
     icon: "https://cdn.simpleicons.org/x/111827",
     accent: "bg-slate-100",
-    description: "Premium access to fast, real-time AI assistance, deep reasoning, and uncensored insights.",
+    description: "Premium access to fast, real-time AI assistance and deeper reasoning.",
   },
   {
     name: "StealthWriter",
     price: 890,
     icon: "https://cdn.simpleicons.org/writedotas/2563EB",
     accent: "bg-blue-50",
-    description: "Refine AI-generated text into undetectable, natural, human-sounding writing.",
+    description: "Refine AI-generated text into natural, polished, human-sounding writing.",
   },
   {
-    name: "Grammarly Premium",
+    name: "Grammarly",
     price: 350,
     icon: "https://cdn.simpleicons.org/grammarly/15C39A",
     accent: "bg-emerald-50",
-    description: "Write clearly and confidently with advanced grammar, style, and tone suggestions.",
-    popular: true,
+    description: "Write clearly and confidently with advanced grammar and tone suggestions.",
   },
   {
-    name: "QuillBot Premium",
+    name: "QuillBot",
     price: 250,
     icon: "https://cdn.simpleicons.org/quora/2A8E63",
     accent: "bg-teal-50",
-    description: "Paraphrase, summarize, and instantly improve your essays and thesis in less time.",
+    description: "Paraphrase, summarize, and improve your writing in less time.",
   },
   {
-    name: "Claude Pro",
+    name: "Cloude Pro",
     price: 999,
     icon: "/logos/claude.svg",
-    accent: "bg-amber-50",
-    description: "Anthropic's flagship model for coding, high-level analysis, and natural writing.",
-    popular: true,
+    accent: "bg-rose-50",
+    description: "Creative tools for design, photo editing, video, and professional content.",
   },
   {
     name: "CapCut Pro",
     price: 699,
     icon: "/logos/capcut.svg",
     accent: "bg-slate-100",
-    description: "Create viral videos with full premium transitions, auto-captions, and AI filters.",
+    description: "Create polished videos with premium effects, templates, and editing tools.",
   },
   {
-    name: "Netflix Premium 4K",
+    name: "Netflix",
     price: 399,
     icon: "https://cdn.simpleicons.org/netflix/E50914",
     accent: "bg-red-50",
-    description: "Enjoy ultra HD movies, web series, and blockbuster entertainment without ads.",
-    popular: true,
+    description: "Enjoy popular movies, series, and entertainment on your favorite screen.",
   },
 ];
 
@@ -124,18 +117,18 @@ function AppLink({
 function Brand({ light = false, compact = false }: { light?: boolean; compact?: boolean }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="relative block size-10 shrink-0 overflow-hidden rounded-xl bg-slate-950 ring-1 ring-white/10 shadow-md">
+      <span className="relative block size-10 shrink-0 overflow-hidden rounded-xl bg-slate-950">
         <img
-          alt="PÏ€emium-IT official logo"
+          alt="Pπemium-IT official logo"
           className="official-logo-image"
-          src="/brand/premium-it-official.jpeg"
+          src="./brand/premium-it-logo.png"
         />
       </span>
       <div className={compact ? "hidden sm:block" : ""}>
         <p className={`text-lg font-extrabold tracking-tight ${light ? "text-white" : "text-slate-950"}`}>
-          PÏ€emium-IT
+          Pπemium-IT
         </p>
-        <p className={`text-xs font-semibold ${light ? "text-teal-400" : "text-teal-700"}`}>
+        <p className={`text-xs font-medium ${light ? "text-slate-400" : "text-slate-500"}`}>
           Premium digital services
         </p>
       </div>
@@ -145,21 +138,21 @@ function Brand({ light = false, compact = false }: { light?: boolean; compact?: 
 
 function Header({ page, navigate }: { page: Page; navigate: (page: Page) => void }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-300/80 bg-slate-100/95 backdrop-blur-xl transition-all">
+    <header className="sticky top-0 z-50 border-b border-slate-300/80 bg-slate-100/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <AppLink href="#home" onClick={() => navigate("home")} className="shrink-0 transition-transform active:scale-95" label="Go to Home">
+        <AppLink href="#home" onClick={() => navigate("home")} className="shrink-0">
           <Brand compact />
         </AppLink>
-        <nav aria-label="Main navigation" className="flex items-center gap-1 rounded-full bg-slate-200/80 p-1 shadow-inner">
+        <nav aria-label="Main navigation" className="flex items-center gap-1 rounded-full bg-slate-100 p-1">
           {(["home", "products", "reviews"] as Page[]).map((item) => (
             <AppLink
               key={item}
               href={`#${item}`}
               onClick={() => navigate(item)}
-              className={`rounded-full px-4 py-2 text-sm font-bold capitalize transition-all duration-200 ${
+              className={`rounded-full px-3 py-2 text-sm font-bold capitalize transition sm:px-4 ${
                 page === item
                   ? "bg-white text-slate-950 shadow-sm"
-                  : "text-slate-600 hover:text-slate-950 hover:bg-slate-300/50"
+                  : "text-slate-500 hover:text-slate-950"
               }`}
             >
               {item}
@@ -173,15 +166,15 @@ function Header({ page, navigate }: { page: Page; navigate: (page: Page) => void
 
 function ArrowIcon() {
   return (
-    <svg aria-hidden="true" className="size-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" />
+    <svg aria-hidden="true" className="size-4" fill="none" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 }
 
 function CheckIcon() {
   return (
-    <svg aria-hidden="true" className="size-5 shrink-0" fill="none" viewBox="0 0 24 24">
+    <svg aria-hidden="true" className="size-5" fill="none" viewBox="0 0 24 24">
       <path d="m5 12 4 4L19 6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" />
     </svg>
   );
@@ -189,15 +182,15 @@ function CheckIcon() {
 
 function TrustCard({ number, title, copy }: { number: string; title: string; copy: string }) {
   return (
-    <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl">
-      <div className="mb-6 flex items-start justify-between">
-        <span className="grid size-11 place-items-center rounded-2xl bg-teal-50 font-black text-teal-700 transition group-hover:bg-teal-600 group-hover:text-white">
+    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-8 flex items-start justify-between">
+        <span className="grid size-10 place-items-center rounded-full bg-teal-50 font-extrabold text-teal-700">
           {number}
         </span>
-        <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 border border-emerald-200/50">Trusted</span>
+        <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Trusted</span>
       </div>
       <h3 className="text-xl font-extrabold text-slate-950">{title}</h3>
-      <p className="mt-2 text-sm leading-6 text-slate-600">{copy}</p>
+      <p className="mt-2 text-sm leading-6 text-slate-500">{copy}</p>
     </article>
   );
 }
@@ -206,7 +199,7 @@ function ContactStrip() {
   const contacts = [
     {
       label: "Facebook",
-      value: "PÏ€emium-IT",
+      value: "Pπemium-IT",
       href: "https://www.facebook.com/premiumit2.0",
       icon: "https://cdn.simpleicons.org/facebook/ffffff",
       color: "bg-blue-600",
@@ -236,32 +229,30 @@ function ContactStrip() {
 
   return (
     <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
-      <div className="overflow-hidden rounded-3xl bg-slate-950 p-6 sm:p-10 shadow-2xl border border-white/10">
-        <div className="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+      <div className="overflow-hidden rounded-3xl bg-slate-950 p-6 sm:p-8">
+        <div className="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Always Connected</p>
-            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">à¦•à¦¥à¦¾ à¦¬à¦²à§à¦¨ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à¦¾à¦¥à§‡</h2>
+            <p className="text-sm font-bold uppercase tracking-widest text-teal-400">Always connected</p>
+            <h2 className="mt-2 text-2xl font-extrabold text-white">কথা বলুন আমাদের সাথে</h2>
           </div>
-          <p className="text-sm font-medium text-slate-400">Click any channel to connect instantly</p>
+          <p className="text-sm text-slate-400">Click any channel to connect directly</p>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {contacts.map((contact) => (
             <AppLink
               key={contact.label}
               href={contact.href}
-              className="group flex min-w-0 items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-teal-500/50 hover:bg-white/10 hover:-translate-y-0.5"
+              className="group flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10"
               label={`Open ${contact.label}`}
             >
-              <span className={`grid size-11 shrink-0 place-items-center rounded-xl shadow-md ${contact.color}`}>
+              <span className={`grid size-11 shrink-0 place-items-center rounded-xl ${contact.color}`}>
                 <img alt="" className="size-5" src={contact.icon} />
               </span>
               <span className="min-w-0">
                 <span className="block text-xs font-bold uppercase tracking-wide text-slate-400">
                   {contact.label}
                 </span>
-                <span className="block truncate text-sm font-extrabold text-white group-hover:text-teal-300 transition-colors">
-                  {contact.value}
-                </span>
+                <span className="block truncate text-sm font-bold text-white">{contact.value}</span>
               </span>
             </AppLink>
           ))}
@@ -276,37 +267,37 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
     <main>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-200 via-slate-100 to-slate-200" />
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-2 text-xs sm:text-sm font-bold text-teal-800 shadow-sm">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-              Trusted Digital Shop in Bangladesh
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-bold text-teal-800 shadow-sm">
+              <span className="size-2 rounded-full bg-emerald-500" />
+              Trusted digital shop in Bangladesh
             </div>
-            <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
+            <h1 className="max-w-2xl text-5xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
               Premium tools.
               <span className="block text-teal-600">Smarter possibilities.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600">
-              AI, writing, design, editing à¦“ entertainment-à¦à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨à§€à§Ÿ premium digital services à¦à¦–à¦¨ à¦à¦•
-              à¦œà¦¾à§Ÿà¦—à¦¾à§Ÿâ€”à¦¸à¦¹à¦œ à¦…à¦°à§à¦¡à¦¾à¦°, à¦¦à§à¦°à§à¦¤ à¦¡à§‡à¦²à¦¿à¦­à¦¾à¦°à¦¿ à¦“ à¦¸à¦¾à¦¶à§à¦°à§Ÿà§€ à¦®à§‚à¦²à§à¦¯à§‡à¥¤
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              AI, writing, design, editing ও entertainment-এর প্রয়োজনীয় premium digital services এখন এক
+              জায়গায়—সহজ অর্ডার, দ্রুত সাপোর্ট এবং সাশ্রয়ী মূল্যে।
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-wrap gap-3">
               <AppLink
                 href="#products"
                 onClick={() => navigate("products")}
-                className="animate-shine inline-flex items-center gap-2.5 rounded-full bg-slate-950 px-7 py-4 text-sm font-black text-white shadow-xl transition-all duration-300 hover:bg-teal-700 hover:shadow-teal-900/20 active:scale-95"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-teal-700"
               >
                 Explore products <ArrowIcon />
               </AppLink>
               <AppLink
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PÏ€emium-IT, I need help choosing a product.")}`}
-                className="inline-flex items-center gap-2.5 rounded-full border-2 border-slate-300 bg-white px-7 py-3.5 text-sm font-black text-slate-800 shadow-sm transition-all duration-300 hover:border-slate-950 hover:bg-slate-50 active:scale-95"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Pπemium-IT, I need help choosing a product.")}`}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-800 transition hover:border-slate-950"
               >
                 Chat on WhatsApp
               </AppLink>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs sm:text-sm font-bold text-slate-600">
-              {["Fast response", "Easy ordering", "Helpful support", "Verified Accounts"].map((item) => (
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600">
+              {["Fast response", "Easy ordering", "Helpful support"].map((item) => (
                 <span key={item} className="flex items-center gap-2">
                   <span className="text-teal-600"><CheckIcon /></span>
                   {item}
@@ -316,27 +307,27 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
           </div>
 
           <div className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -inset-4 -z-10 rounded-full bg-teal-200/60 blur-3xl" />
-            <div className="rotate-2 rounded-4xl bg-slate-950 p-5 shadow-2xl transition-transform hover:rotate-0 duration-500">
+            <div className="absolute -inset-4 -z-10 rounded-full bg-teal-100 blur-3xl" />
+            <div className="rotate-2 rounded-4xl bg-slate-950 p-5 shadow-2xl">
               <div className="rounded-3xl bg-white p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <Brand />
-                  <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1.5 text-xs font-black text-emerald-700">
-                    â— Online
+                  <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-extrabold text-emerald-700">
+                    Online
                   </span>
                 </div>
                 <div className="my-8 grid grid-cols-3 gap-3">
                   {products.slice(0, 6).map((product) => (
-                    <div key={product.name} className={`${product.accent} grid aspect-square place-items-center rounded-2xl shadow-sm transition-transform hover:scale-105 duration-200`}>
+                    <div key={product.name} className={`${product.accent} grid aspect-square place-items-center rounded-2xl`}>
                       <img alt={`${product.name} logo`} className="size-9 object-contain" src={product.icon} />
                     </div>
                   ))}
                 </div>
-                <div className="rounded-2xl bg-slate-50 p-5 border border-slate-100">
+                <div className="rounded-2xl bg-slate-50 p-5">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Starting from</p>
                   <div className="mt-1 flex items-end justify-between">
-                    <p className="text-3xl font-black text-slate-950">à§³250</p>
-                    <p className="text-xs sm:text-sm font-black text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">9+ Premium Tools</p>
+                    <p className="text-3xl font-black text-slate-950">৳250</p>
+                    <p className="text-sm font-bold text-teal-700">9 premium products</p>
                   </div>
                 </div>
               </div>
@@ -345,26 +336,21 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
         </div>
       </section>
 
-      {/* Reserved Slot for the User's upcoming Marquee / Hero animation */}
-      <div id="animation-banner-slot" className="w-full">
-        {/* Placeholder slot kept empty as instructed: "à¦ à¦œà¦¾à§Ÿà¦—à¦¾à¦Ÿà¦¾ à¦–à¦¾à¦²à¦¿ à¦°à¦¾à¦–à¦¬à¦¾, à¦†à¦®à¦¿ à¦ªà¦°à§‡ à¦¬à¦²à¦¬à§‹ à¦ à¦…à§à¦¯à¦¾à¦¨à¦¿à¦®à§‡à¦¶à¦¨à¦Ÿà¦¾ à¦•à¦¿à¦°à¦•à¦® à¦¹à¦¬à§‡à¥¤" */}
-      </div>
-
-      <section className="border-y border-slate-300 bg-slate-200/90 py-20 lg:py-24">
+      <section className="border-y border-slate-300 bg-slate-200 py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="mb-12 max-w-2xl">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Why PÏ€emium-IT</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
-              à¦­à¦°à¦¸à¦¾à¦° à¦¸à¦¾à¦¥à§‡ à¦¡à¦¿à¦œà¦¿à¦Ÿà¦¾à¦² à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-extrabold uppercase tracking-widest text-teal-700">Why Pπemium-IT</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+              ভরসার সাথে ডিজিটাল সার্ভিস
             </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦¬à§à¦à§‡ à¦¸à¦ à¦¿à¦• product à¦¬à§‡à¦›à§‡ à¦¨à¦¿à¦¤à§‡ à¦†à¦®à¦°à¦¾ à¦ªà¦¾à¦¶à§‡ à¦†à¦›à¦¿â€”à¦…à¦°à§à¦¡à¦¾à¦°à§‡à¦° à¦†à¦—à§‡ à¦“ à¦ªà¦°à§‡ à¦¸à¦¾à¦°à§à¦¬à¦•à§à¦·à¦£à¦¿à¦• à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾ à¦ªà¦¾à¦¬à§‡à¦¨à¥¤
+            <p className="mt-4 leading-7 text-slate-600">
+              আপনার প্রয়োজন বুঝে সঠিক product বেছে নিতে আমরা পাশে আছি—অর্ডারের আগে ও পরে।
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <TrustCard number="01" title="Straightforward pricing" copy="à¦ªà¦°à¦¿à¦·à§à¦•à¦¾à¦° à¦®à§‚à¦²à§à¦¯ à¦“ à¦¸à¦¹à¦œ à¦…à¦°à§à¦¡à¦¾à¦° à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾â€”à¦•à§‹à¦¨à§‹ à¦²à§à¦•à¦¾à¦¨à§‹ à¦šà¦¾à¦°à§à¦œ à¦¬à¦¾ à¦œà¦Ÿà¦¿à¦²à¦¤à¦¾ à¦¨à§‡à¦‡à¥¤" />
-            <TrustCard number="02" title="Responsive support" copy="Product à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦¬à¦¾ à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦Ÿà§‡à¦•à¦¨à¦¿à¦•à§à¦¯à¦¾à¦² à¦ªà§à¦°à¦¶à§à¦¨à§‡ WhatsApp-à¦ à¦¦à§à¦°à§à¦¤ à¦•à¦¾à¦°à§à¦¯à¦•à¦° à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾à¥¤" />
-            <TrustCard number="03" title="Customer-first service" copy="à¦ªà§à¦°à¦¤à¦¿à¦Ÿà¦¿ à¦…à¦°à§à¦¡à¦¾à¦°à§‡ à¦¯à¦¤à§à¦¨, à¦¸à§Ž à¦¯à§‹à¦—à¦¾à¦¯à§‹à¦— à¦à¦¬à¦‚ à¦¦à§€à¦°à§à¦˜à¦®à§‡à§Ÿà¦¾à¦¦à¦¿ à¦—à§à¦°à¦¾à¦¹à¦• à¦†à¦¸à§à¦¥à¦¾à¦‡ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦®à§‚à¦² à¦²à¦•à§à¦·à§à¦¯à¥¤" />
+          <div className="grid gap-5 md:grid-cols-3">
+            <TrustCard number="01" title="Straightforward pricing" copy="পরিষ্কার মূল্য ও সহজ অর্ডার প্রক্রিয়া—কোনো অপ্রয়োজনীয় জটিলতা নেই।" />
+            <TrustCard number="02" title="Responsive support" copy="Product নির্বাচন বা অর্ডার সংক্রান্ত প্রশ্নে WhatsApp-এ দ্রুত সহায়তা।" />
+            <TrustCard number="03" title="Customer-first service" copy="প্রতিটি অর্ডারে যত্ন, পরিষ্কার যোগাযোগ এবং দীর্ঘমেয়াদি আস্থাই আমাদের অগ্রাধিকার।" />
           </div>
         </div>
       </section>
@@ -375,47 +361,29 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
 
 function ProductCard({ product }: { product: Product }) {
   const message = encodeURIComponent(
-    `Hello PÏ€emium-IT, I want to order ${product.name} for ${product.price} BDT. Please share the details.`,
+    `Hello Pπemium-IT, I want to order ${product.name} for ${product.price} BDT. Please share the details.`,
   );
 
   return (
-    <article className="group flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-teal-400 hover:shadow-2xl">
-      <div>
-        <div className="flex items-start justify-between">
-          <div className={`${product.accent} grid size-16 place-items-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-105`}>
-            <img alt={`${product.name} logo`} className="size-9 object-contain" src={product.icon} />
-          </div>
-          {product.popular ? (
-            <span className="rounded-full bg-teal-50 border border-teal-200 px-3 py-1 text-xs font-black text-teal-700">
-              Popular â˜…
-            </span>
-          ) : (
-            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500">
-              Premium
-            </span>
-          )}
+    <article className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl">
+      <div className="flex items-start justify-between">
+        <div className={`${product.accent} grid size-16 place-items-center rounded-2xl`}>
+          <img alt={`${product.name} logo`} className="size-9 object-contain" src={product.icon} />
         </div>
-        <h2 className="mt-6 text-xl font-black text-slate-950 group-hover:text-teal-700 transition-colors">
-          {product.name}
-        </h2>
-        <p className="mt-2.5 text-sm leading-6 text-slate-500 min-h-12">
-          {product.description}
-        </p>
+        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-500">Premium</span>
       </div>
-
-      <div className="mt-6 pt-5 border-t border-slate-100">
-        <div className="flex items-baseline gap-2">
-          <span className="text-3xl font-black tracking-tight text-slate-950">à§³{product.price}</span>
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-400">BDT</span>
-        </div>
-        <AppLink
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`}
-          className="animate-shine mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-black text-white shadow-md transition-all duration-300 group-hover:bg-teal-700 group-hover:shadow-lg active:scale-95"
-        >
-          <span>Order now</span>
-          <ArrowIcon />
-        </AppLink>
+      <h2 className="mt-6 text-xl font-black text-slate-950">{product.name}</h2>
+      <p className="mt-2 min-h-12 text-sm leading-6 text-slate-500">{product.description}</p>
+      <div className="mt-6 flex items-end gap-2 border-t border-slate-100 pt-5">
+        <span className="text-3xl font-black tracking-tight text-slate-950">৳{product.price}</span>
+        <span className="pb-1 text-xs font-bold uppercase tracking-wider text-slate-400">BDT</span>
       </div>
+      <AppLink
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`}
+        className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition group-hover:bg-teal-700"
+      >
+        Order now <ArrowIcon />
+      </AppLink>
     </article>
   );
 }
@@ -423,31 +391,30 @@ function ProductCard({ product }: { product: Product }) {
 function ProductsPage() {
   return (
     <main>
-      <section className="border-b border-slate-800 bg-slate-950">
+      <section className="border-b border-slate-200 bg-slate-950">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Exclusive Collection</p>
-          <div className="mt-3 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <h1 className="max-w-2xl text-3xl font-black tracking-tight text-white sm:text-5xl">
-              à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨à§‡à¦° Premium Digital Products
+          <p className="text-sm font-extrabold uppercase tracking-widest text-teal-400">Product collection</p>
+          <div className="mt-4 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+            <h1 className="max-w-2xl text-4xl font-black tracking-tight text-white sm:text-5xl">
+              আপনার প্রয়োজনের premium digital products
             </h1>
-            <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-400">
-              à¦ªà¦›à¦¨à§à¦¦à§‡à¦° à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦•à¦°à§à¦¨à¥¤ Order Now à¦¬à¦¾à¦Ÿà¦¨à§‡ à¦šà¦¾à¦ªà¦²à§‡ à¦¸à¦°à¦¾à¦¸à¦°à¦¿ WhatsApp-à¦ à¦¬à¦¿à¦¸à§à¦¤à¦¾à¦°à¦¿à¦¤ à¦¸à¦¹ à¦…à¦°à§à¦¡à¦¾à¦° à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à¦¬à§‡à¦¨à¥¤
+            <p className="max-w-md leading-7 text-slate-400">
+              পছন্দের product নির্বাচন করুন। Order Now চাপলে সরাসরি WhatsApp-এ আমাদের সাথে কথা বলতে পারবেন।
             </p>
           </div>
         </div>
       </section>
-
-      <section className="bg-slate-200/90 py-16 lg:py-20">
+      <section className="bg-slate-200 py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => <ProductCard key={product.name} product={product} />)}
           </div>
-          <div className="mt-14 rounded-3xl border border-teal-200 bg-teal-50 p-8 text-center sm:p-10 shadow-sm">
-            <h2 className="text-2xl font-black text-slate-950">à¦•à§‹à¦¨ product-à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦œà¦¨à§à¦¯ à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦­à¦¾à¦²à§‹ à¦¹à¦¬à§‡ à¦¬à§à¦à¦¤à§‡ à¦ªà¦¾à¦°à¦›à§‡à¦¨ à¦¨à¦¾?</h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm sm:text-base text-slate-600">WhatsApp-à¦ à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦œà¦¾à¦¨à¦¾à¦¨, à¦†à¦®à¦°à¦¾ à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦¸à¦¾à¦¶à§à¦°à§Ÿà§€ à¦“ à¦‰à¦ªà¦¯à§à¦•à§à¦¤ à¦…à¦ªà¦¶à¦¨à¦Ÿà¦¿ à¦¬à§‡à¦›à§‡ à¦¦à§‡à¦¬à¥¤</p>
+          <div className="mt-12 rounded-3xl border border-teal-200 bg-teal-50 p-6 text-center sm:p-8">
+            <h2 className="text-2xl font-black text-slate-950">কোন productটি আপনার জন্য সঠিক বুঝতে পারছেন না?</h2>
+            <p className="mx-auto mt-2 max-w-xl text-slate-600">WhatsApp-এ আপনার প্রয়োজন বলুন, আমরা সঠিক option বেছে নিতে সাহায্য করব।</p>
             <AppLink
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PÏ€emium-IT, please help me choose the right product.")}`}
-              className="animate-shine mt-6 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 text-sm font-black text-white shadow-lg transition-all duration-300 hover:bg-teal-800 active:scale-95"
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Pπemium-IT, please help me choose the right product.")}`}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-800"
             >
               Get help on WhatsApp <ArrowIcon />
             </AppLink>
@@ -463,7 +430,7 @@ function StarIcon({ filled }: { filled: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className={`size-5 transition-transform ${filled ? "fill-amber-400 text-amber-400" : "fill-slate-200 text-slate-200"}`}
+      className={`size-5 ${filled ? "fill-amber-400 text-amber-400" : "fill-slate-200 text-slate-200"}`}
       viewBox="0 0 24 24"
     >
       <path d="m12 2.5 2.9 5.87 6.48.94-4.69 4.57 1.11 6.45L12 17.28l-5.8 3.05 1.11-6.45-4.69-4.57 6.48-.94L12 2.5Z" stroke="currentColor" strokeLinejoin="round" />
@@ -473,18 +440,18 @@ function StarIcon({ filled }: { filled: boolean }) {
 
 function ReviewCard({ review }: { review: Review }) {
   return (
-    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h3 className="font-extrabold text-slate-950 text-base">{review.name}</h3>
-          <p className="mt-1 text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2 py-0.5 rounded w-fit">{review.product}</p>
+          <h3 className="font-extrabold text-slate-950">{review.name}</h3>
+          <p className="mt-1 text-xs font-bold uppercase tracking-wide text-teal-700">{review.product}</p>
         </div>
         <span className="shrink-0 text-xs font-semibold text-slate-400">{review.date}</span>
       </div>
-      <div className="mt-3.5 flex gap-1" aria-label={`${review.rating} out of 5 stars`}>
+      <div className="mt-4 flex gap-1" aria-label={`${review.rating} out of 5 stars`}>
         {[1, 2, 3, 4, 5].map((star) => <StarIcon key={star} filled={star <= review.rating} />)}
       </div>
-      <p className="mt-3.5 leading-relaxed text-sm text-slate-600">{review.message}</p>
+      <p className="mt-4 leading-7 text-slate-600">{review.message}</p>
     </article>
   );
 }
@@ -515,37 +482,36 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
     setRating(5);
     setMessage("");
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
     <main>
-      <section className="border-b border-slate-800 bg-slate-950">
+      <section className="bg-slate-950">
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Customer Feedback</p>
-          <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
-            à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à¦¾à¦¥à§‡ à¦¶à§‡à§Ÿà¦¾à¦° à¦•à¦°à§à¦¨
+          <p className="text-sm font-extrabold uppercase tracking-widest text-teal-400">Customer reviews</p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-black tracking-tight text-white sm:text-5xl">
+            আপনার অভিজ্ঞতা আমাদের সাথে শেয়ার করুন
           </h1>
-          <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-400">
-            PÏ€emium-IT à¦¥à§‡à¦•à§‡ à¦¨à§‡à¦“à§Ÿà¦¾ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦“ à¦ªà§à¦°à§‹à¦¡à¦¾à¦•à§à¦Ÿ à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦¸à§Ž à¦®à¦¤à¦¾à¦®à¦¤ à¦²à¦¿à¦–à§à¦¨à¥¤ à¦†à¦ªà¦¨à¦¾à¦° à¦®à§‚à¦²à§à¦¯à¦¬à¦¾à¦¨ à¦°à¦¿à¦­à¦¿à¦‰ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à§‡à¦¬à¦¾à¦•à§‡ à¦†à¦°à§‹ à¦‰à¦¨à§à¦¨à¦¤ à¦•à¦°à¦¤à§‡ à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾ à¦•à¦°à§‡à¥¤
+          <p className="mt-5 max-w-2xl leading-7 text-slate-400">
+            Pπemium-IT থেকে নেওয়া product ও service সম্পর্কে আপনার মতামত লিখুন। আপনার feedback আমাদের service আরও ভালো করতে সাহায্য করবে।
           </p>
         </div>
       </section>
 
-      <section className="bg-slate-200/90 py-16 lg:py-20">
+      <section className="bg-slate-200 py-16 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-5 lg:px-8">
           <div className="lg:col-span-2">
             <div className="sticky top-28 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-              <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Write a Review</p>
-              <h2 className="mt-1 text-2xl font-black text-slate-950">à¦†à¦ªà¦¨à¦¾à¦° Review à¦¦à¦¿à¦¨</h2>
-              <form className="mt-6 space-y-4" onSubmit={submitReview}>
+              <p className="text-sm font-extrabold uppercase tracking-widest text-teal-700">Write a review</p>
+              <h2 className="mt-2 text-2xl font-black text-slate-950">আপনার Review দিন</h2>
+              <form className="mt-7 space-y-5" onSubmit={submitReview}>
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">à¦†à¦ªà¦¨à¦¾à¦° à¦¨à¦¾à¦®</span>
+                  <span className="mb-2 block text-sm font-bold text-slate-700">আপনার নাম</span>
                   <input
-                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
                     maxLength={50}
                     onChange={(event) => setName(event.target.value)}
-                    placeholder="à¦†à¦ªà¦¨à¦¾à¦° à¦¨à¦¾à¦® à¦²à¦¿à¦–à§à¦¨"
+                    placeholder="আপনার নাম লিখুন"
                     required
                     type="text"
                     value={name}
@@ -553,9 +519,9 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </label>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">Product</span>
+                  <span className="mb-2 block text-sm font-bold text-slate-700">Product</span>
                   <select
-                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100 font-medium"
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-950 outline-none transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
                     onChange={(event) => setProduct(event.target.value)}
                     value={product}
                   >
@@ -564,15 +530,15 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </label>
 
                 <fieldset>
-                  <legend className="mb-1.5 text-xs font-bold uppercase tracking-wider text-slate-600">Rating</legend>
+                  <legend className="mb-2 text-sm font-bold text-slate-700">Rating</legend>
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <button
                         aria-label={`${star} star rating`}
-                        className={`grid size-11 place-items-center rounded-xl border transition-all duration-200 active:scale-95 ${
+                        className={`grid size-11 place-items-center rounded-xl border transition ${
                           star <= rating
-                            ? "border-amber-300 bg-amber-50 text-amber-500 scale-105"
-                            : "border-slate-300 bg-slate-50 text-slate-400 hover:border-slate-400"
+                            ? "border-amber-300 bg-amber-50"
+                            : "border-slate-300 bg-slate-50 hover:border-slate-400"
                         }`}
                         key={star}
                         onClick={() => setRating(star)}
@@ -585,26 +551,26 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </fieldset>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">à¦†à¦ªà¦¨à¦¾à¦° à¦®à¦¤à¦¾à¦®à¦¤</span>
+                  <span className="mb-2 block text-sm font-bold text-slate-700">আপনার মতামত</span>
                   <textarea
-                    className="min-h-28 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
+                    className="min-h-32 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
                     maxLength={500}
                     onChange={(event) => setMessage(event.target.value)}
-                    placeholder="Product à¦“ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦²à¦¿à¦–à§à¦¨..."
+                    placeholder="Product ও service সম্পর্কে আপনার অভিজ্ঞতা লিখুন..."
                     required
                     value={message}
                   />
                 </label>
 
                 <button
-                  className="animate-shine w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-black text-white transition-all duration-300 hover:bg-teal-700 active:scale-95 shadow-md"
+                  className="w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-700"
                   type="submit"
                 >
                   Submit review
                 </button>
                 {submitted && (
-                  <p className="rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-xs sm:text-sm font-bold text-emerald-700" role="status">
-                    à¦§à¦¨à§à¦¯à¦¬à¦¾à¦¦! à¦†à¦ªà¦¨à¦¾à¦° review à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦¯à§à¦•à§à¦¤ à¦¹à§Ÿà§‡à¦›à§‡à¥¤
+                  <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700" role="status">
+                    ধন্যবাদ। আপনার review সফলভাবে যোগ হয়েছে।
                   </p>
                 )}
               </form>
@@ -614,26 +580,26 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
           <div className="lg:col-span-3">
             <div className="mb-6 flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Community Reviews</p>
-                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-slate-950">à¦—à§à¦°à¦¾à¦¹à¦•à¦¦à§‡à¦° à¦ªà§à¦°à¦¤à¦¿à¦•à§à¦°à¦¿à¦¯à¦¼à¦¾</h2>
+                <p className="text-sm font-extrabold uppercase tracking-widest text-teal-700">Community feedback</p>
+                <h2 className="mt-2 text-3xl font-black text-slate-950">Customer reviews</h2>
               </div>
-              <span className="rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs sm:text-sm font-black text-slate-700 shadow-sm">
+              <span className="rounded-full bg-white px-4 py-2 text-sm font-extrabold text-slate-600 shadow-sm">
                 {reviews.length} {reviews.length === 1 ? "review" : "reviews"}
               </span>
             </div>
 
             {reviews.length > 0 ? (
-              <div className="grid gap-4 sm:gap-5">
+              <div className="grid gap-5">
                 {reviews.map((review) => <ReviewCard key={review.id} review={review} />)}
               </div>
             ) : (
-              <div className="rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50 p-10 text-center">
-                <div className="mx-auto flex w-fit gap-1 text-amber-400">
+              <div className="rounded-3xl border border-dashed border-slate-400 bg-slate-100 p-10 text-center">
+                <div className="mx-auto flex w-fit gap-1">
                   {[1, 2, 3, 4, 5].map((star) => <StarIcon key={star} filled />)}
                 </div>
-                <h3 className="mt-4 text-xl font-black text-slate-950">à¦ªà§à¦°à¦¥à¦® Review à¦¦à¦¿à¦¨!</h3>
-                <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600">
-                  à¦¬à¦¾à¦® à¦ªà¦¾à¦¶à§‡à¦° à¦«à¦°à§à¦®à¦Ÿà¦¿ à¦ªà§‚à¦°à¦£ à¦•à¦°à§‡ PÏ€emium-IT à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦¶à§‡à§Ÿà¦¾à¦° à¦•à¦°à§à¦¨à¥¤
+                <h3 className="mt-5 text-xl font-black text-slate-950">প্রথম reviewটি আপনার হতে পারে</h3>
+                <p className="mx-auto mt-2 max-w-md leading-7 text-slate-600">
+                  বাম পাশের form পূরণ করে Pπemium-IT সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন।
                 </p>
               </div>
             )}
@@ -647,75 +613,16 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
 
 function Footer({ navigate }: { navigate: (page: Page) => void }) {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-5 py-12 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-12 md:items-center">
-          {/* Logo, Brand & Tagline with Direct Home Link */}
-          <div className="md:col-span-5">
-            <AppLink
-              href="#home"
-              onClick={() => navigate("home")}
-              className="inline-block transition-transform hover:opacity-95 active:scale-95"
-              label="Go to Top Home"
-            >
-              <Brand light />
-            </AppLink>
-            <p className="mt-4 max-w-sm text-xs sm:text-sm leading-relaxed text-slate-400">
-              Bangladesh-à¦à¦° à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦¬à¦¿à¦¶à§à¦¬à¦¸à§à¦¤ à¦¡à¦¿à¦œà¦¿à¦Ÿà¦¾à¦² à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦“ à¦ªà§à¦°à¦¿à¦®à¦¿à¦¯à¦¼à¦¾à¦® à¦Ÿà§à¦²à¦¸ à¦¶à¦ªà¥¤ à§¨à§ª/à§­ à¦•à¦¾à¦¸à§à¦Ÿà¦®à¦¾à¦° à¦¸à¦¾à¦ªà§‹à¦°à§à¦Ÿ à¦“ à¦¸à¦¾à¦¶à§à¦°à¦¯à¦¼à§€ à¦®à§‚à¦²à§à¦¯à¥¤
-            </p>
-          </div>
-
-          {/* Quick Page Links */}
-          <div className="md:col-span-4">
-            <p className="text-xs font-black uppercase tracking-wider text-teal-400">Quick Navigation</p>
-            <nav className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-slate-300">
-              <AppLink
-                href="#home"
-                onClick={() => navigate("home")}
-                className="transition-colors hover:text-teal-400"
-              >
-                Home
-              </AppLink>
-              <AppLink
-                href="#products"
-                onClick={() => navigate("products")}
-                className="transition-colors hover:text-teal-400"
-              >
-                Products
-              </AppLink>
-              <AppLink
-                href="#reviews"
-                onClick={() => navigate("reviews")}
-                className="transition-colors hover:text-teal-400"
-              >
-                Reviews
-              </AppLink>
-              <AppLink
-                href="mailto:help.premiumit@gmail.com"
-                className="transition-colors hover:text-teal-400"
-              >
-                Support
-              </AppLink>
-            </nav>
-          </div>
-
-          {/* Contact Direct CTA */}
-          <div className="md:col-span-3 flex flex-col md:items-end">
-            <AppLink
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              className="animate-shine inline-flex items-center gap-2 rounded-full bg-teal-600 px-5 py-2.5 text-xs font-black text-white shadow-lg transition-all hover:bg-teal-500 active:scale-95"
-            >
-              <span>WhatsApp Support</span>
-              <ArrowIcon />
-            </AppLink>
-          </div>
+    <footer className="border-t border-slate-800 bg-slate-950">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <Brand light />
+        <div className="flex gap-6 text-sm font-bold text-slate-400">
+          <AppLink href="#home" onClick={() => navigate("home")} className="hover:text-white">Home</AppLink>
+          <AppLink href="#products" onClick={() => navigate("products")} className="hover:text-white">Products</AppLink>
+          <AppLink href="#reviews" onClick={() => navigate("reviews")} className="hover:text-white">Reviews</AppLink>
+          <AppLink href="mailto:help.premiumit@gmail.com" className="hover:text-white">Support</AppLink>
         </div>
-
-        {/* Bottom copyright line */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-900 pt-8 sm:flex-row text-xs text-slate-500">
-          <p>Â© {new Date().getFullYear()} PÏ€emium-IT. All rights reserved.</p>
-          <p className="text-slate-400 font-medium">Delivering Premium Digital Experiences across Bangladesh</p>
-        </div>
+        <p className="text-sm text-slate-500">© 2025 Pπemium-IT. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -731,36 +638,10 @@ export default function App() {
   const [reviews, setReviews] = useState<Review[]>(() => {
     try {
       const storedReviews = window.localStorage.getItem("premium-it-reviews");
-      if (storedReviews) return JSON.parse(storedReviews);
+      return storedReviews ? JSON.parse(storedReviews) : [];
     } catch {
-      // fallback
+      return [];
     }
-    return [
-      {
-        id: 1,
-        name: "Tanvir Ahmed",
-        product: "ChatGPT Plus",
-        rating: 5,
-        message: "à¦–à§à¦¬ à¦¦à§à¦°à§à¦¤ ChatGPT Plus à¦à¦•à§à¦Ÿà¦¿à¦­ à¦•à¦°à§‡ à¦¦à¦¿à§Ÿà§‡à¦›à§‡à¦¨à¥¤ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦…à¦¤à§à¦¯à¦¨à§à¦¤ à¦šà¦®à§Žà¦•à¦¾à¦°!",
-        date: "28 Oct 2026",
-      },
-      {
-        id: 2,
-        name: "Farhan Hossain",
-        product: "Grammarly Premium",
-        rating: 5,
-        message: "Grammarly à¦ à¦¿à¦•à¦­à¦¾à¦¬à§‡ à¦•à¦¾à¦œ à¦•à¦°à¦›à§‡à¥¤ à¦¸à¦¾à¦ªà§‹à¦°à§à¦Ÿ à¦…à¦¨à§‡à¦• à¦†à¦¨à§à¦¤à¦°à¦¿à¦• à¦“ à¦¦à§à¦°à§à¦¤à¥¤",
-        date: "26 Oct 2026",
-      },
-      {
-        id: 3,
-        name: "Shakil Khan",
-        product: "CapCut Pro",
-        rating: 5,
-        message: "CapCut Pro à¦¦à¦¿à§Ÿà§‡ à¦•à§‹à¦¨à§‹ à¦²à§à¦¯à¦¾à¦— à¦›à¦¾à§œà¦¾ à¦à¦¡à¦¿à¦Ÿ à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à¦›à¦¿à¥¤ à¦Ÿà§à¦°à¦¾à¦¸à§à¦Ÿà§‡à¦¡ à¦¶à¦ª!",
-        date: "24 Oct 2026",
-      },
-    ];
   });
 
   useEffect(() => {
@@ -777,25 +658,18 @@ export default function App() {
   const addReview = (review: Review) => {
     setReviews((currentReviews) => {
       const updatedReviews = [review, ...currentReviews];
-      try {
-        window.localStorage.setItem("premium-it-reviews", JSON.stringify(updatedReviews));
-      } catch {
-        // ignore
-      }
+      window.localStorage.setItem("premium-it-reviews", JSON.stringify(updatedReviews));
       return updatedReviews;
     });
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-950 flex flex-col justify-between selection:bg-teal-500 selection:text-white">
+    <div className="min-h-screen bg-slate-100 text-slate-950">
       <Header page={page} navigate={navigate} />
-      <div className="flex-1">
-        {page === "home" && <HomePage navigate={navigate} />}
-        {page === "products" && <ProductsPage />}
-        {page === "reviews" && <ReviewsPage reviews={reviews} onAddReview={addReview} />}
-      </div>
+      {page === "home" && <HomePage navigate={navigate} />}
+      {page === "products" && <ProductsPage />}
+      {page === "reviews" && <ReviewsPage reviews={reviews} onAddReview={addReview} />}
       <Footer navigate={navigate} />
     </div>
   );
 }
-
