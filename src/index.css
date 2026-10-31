@@ -65,27 +65,30 @@ a {
   pointer-events: none;
 }
 
-/* Blinking number animation (active constantly on touch/mobile, and on hover on desktop) */
-@keyframes number-blink {
+/* Blinking number animation: Works continuously on ALL mobile devices and desktop automatically */
+@keyframes number-blink-glow {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
+    background-color: rgb(240 253 250); /* teal-50 */
+    color: rgb(15 118 110); /* teal-700 */
+    box-shadow: 0 0 0 rgba(13, 148, 136, 0);
   }
   50% {
-    opacity: 0.35;
-    transform: scale(1.15);
+    opacity: 0.4;
+    transform: scale(1.12);
+    background-color: rgb(13 148 136); /* teal-600 */
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(13, 148, 136, 0.5);
   }
 }
 
 .animate-number-blink {
-  animation: number-blink 1.8s ease-in-out infinite alternate;
+  animation: number-blink-glow 1.8s ease-in-out infinite alternate !important;
+  will-change: transform, opacity;
 }
 
-.group:hover .animate-number-blink {
-  animation: number-blink 0.6s ease-in-out infinite alternate;
-}
-
-/* Subtle continuous 3D float/wobble for hero mobile card so mobile devices see it automatically */
+/* Mobile card 3D tilt */
 @keyframes mobile-float-motion {
   0%, 100% {
     transform: rotate(2deg) translateY(0px) scale(1);
