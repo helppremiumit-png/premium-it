@@ -1,0 +1,11 @@
+{
+  "title": "Pπemium-IT",
+  "description": "An e-commerce platform offering digital products like ChatGPT Plus and Netflix subscriptions with direct WhatsApp ordering and integrated social media links.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
