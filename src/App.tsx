@@ -182,9 +182,9 @@ function CheckIcon() {
 
 function TrustCard({ number, title, copy }: { number: string; title: string; copy: string }) {
   return (
-    <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <article className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl">
       <div className="mb-8 flex items-start justify-between">
-        <span className="grid size-10 place-items-center rounded-full bg-teal-50 font-extrabold text-teal-700">
+        <span className="animate-number-blink grid size-10 place-items-center rounded-full bg-teal-50 font-extrabold text-teal-700 transition-colors group-hover:bg-teal-600 group-hover:text-white">
           {number}
         </span>
         <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">Trusted</span>
@@ -285,7 +285,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
               <AppLink
                 href="#products"
                 onClick={() => navigate("products")}
-                className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-teal-700"
+                className="animate-shine inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition hover:bg-teal-700 active:scale-95"
               >
                 Explore products <ArrowIcon />
               </AppLink>
@@ -308,7 +308,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
 
           <div className="relative mx-auto w-full max-w-lg">
             <div className="absolute -inset-4 -z-10 rounded-full bg-teal-100 blur-3xl" />
-            <div className="rotate-2 rounded-4xl bg-slate-950 p-5 shadow-2xl">
+            <div className="rotate-2 rounded-4xl bg-slate-950 p-5 shadow-2xl transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-teal-950/40">
               <div className="rounded-3xl bg-white p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <Brand />
@@ -380,7 +380,7 @@ function ProductCard({ product }: { product: Product }) {
       </div>
       <AppLink
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`}
-        className="mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition group-hover:bg-teal-700"
+        className="animate-shine mt-5 inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition group-hover:bg-teal-700 active:scale-95"
       >
         Order now <ArrowIcon />
       </AppLink>
@@ -414,7 +414,7 @@ function ProductsPage() {
             <p className="mx-auto mt-2 max-w-xl text-slate-600">WhatsApp-এ আপনার প্রয়োজন বলুন, আমরা সঠিক option বেছে নিতে সাহায্য করব।</p>
             <AppLink
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Pπemium-IT, please help me choose the right product.")}`}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-800"
+              className="animate-shine mt-6 inline-flex items-center gap-2 rounded-full bg-teal-700 px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-800 active:scale-95"
             >
               Get help on WhatsApp <ArrowIcon />
             </AppLink>
@@ -563,7 +563,7 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </label>
 
                 <button
-                  className="w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-700"
+                  className="animate-shine w-full rounded-xl bg-slate-950 px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-teal-700 active:scale-95"
                   type="submit"
                 >
                   Submit review

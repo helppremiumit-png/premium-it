@@ -65,16 +65,18 @@ a {
   pointer-events: none;
 }
 
-/* Subtle continuous pulse for special badges */
-@keyframes glow-pulse {
+/* Blinking number animation on card hover */
+@keyframes number-blink {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(13, 148, 136, 0.2), 0 0 30px rgba(13, 148, 136, 0.1);
+    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 25px rgba(13, 148, 136, 0.45), 0 0 50px rgba(13, 148, 136, 0.2);
+    opacity: 0.35;
+    transform: scale(1.15);
   }
 }
 
-.glow-effect {
-  animation: glow-pulse 3s infinite ease-in-out;
+.group:hover .animate-number-blink {
+  animation: number-blink 0.7s ease-in-out infinite alternate;
 }
