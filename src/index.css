@@ -80,3 +80,64 @@ a {
 .group:hover .animate-number-blink {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
+
+/* Lipika-style Infinite Marquee Animation flowing towards center */
+@keyframes stream-left-to-center {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes stream-right-to-center {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-stream-left {
+  display: flex;
+  width: max-content;
+  animation: stream-left-to-center 22s linear infinite;
+}
+
+.animate-stream-right {
+  display: flex;
+  width: max-content;
+  animation: stream-right-to-center 22s linear infinite;
+}
+
+/* Gentle pulse and glow for central brand P icon */
+@keyframes center-pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(13, 148, 136, 0.4), 0 0 50px rgba(13, 148, 136, 0.25);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px rgba(13, 148, 136, 0.7), 0 0 70px rgba(13, 148, 136, 0.4);
+  }
+}
+
+.animate-center-pulse {
+  animation: center-pulse-glow 2.8s ease-in-out infinite;
+}
+
+/* Subtle orb rotation aura behind center logo */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}

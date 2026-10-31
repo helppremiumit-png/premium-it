@@ -262,6 +262,81 @@ function ContactStrip() {
   );
 }
 
+function ToolsFlowBanner() {
+  const streamIcons = [
+    { name: "ChatGPT", icon: "./logos/openai.svg", bg: "bg-emerald-50" },
+    { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/8E75F7", bg: "bg-violet-50" },
+    { name: "SuperGrok", icon: "https://cdn.simpleicons.org/x/111827", bg: "bg-slate-100" },
+    { name: "StealthWriter", icon: "https://cdn.simpleicons.org/writedotas/2563EB", bg: "bg-blue-50" },
+    { name: "Grammarly", icon: "https://cdn.simpleicons.org/grammarly/15C39A", bg: "bg-emerald-50" },
+    { name: "QuillBot", icon: "https://cdn.simpleicons.org/quora/2A8E63", bg: "bg-teal-50" },
+    { name: "Claude Pro", icon: "./logos/claude.svg", bg: "bg-rose-50" },
+    { name: "CapCut Pro", icon: "./logos/capcut.svg", bg: "bg-slate-100" },
+    { name: "Netflix", icon: "https://cdn.simpleicons.org/netflix/E50914", bg: "bg-red-50" },
+  ];
+
+  const repeatedStream = [...streamIcons, ...streamIcons, ...streamIcons];
+
+  return (
+    <section className="relative overflow-hidden py-10 my-4 bg-gradient-to-b from-transparent via-slate-200/50 to-transparent">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="relative flex items-center justify-center overflow-hidden rounded-3xl border border-slate-200/90 bg-white/70 py-6 sm:py-8 shadow-sm backdrop-blur-md">
+          
+          {/* Subtle glowing halo behind the center badge */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-48 rounded-full bg-teal-300/30 blur-2xl" />
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-28 rounded-full bg-teal-500/20 blur-xl" />
+
+          {/* Left tools streaming inward toward the center logo */}
+          <div className="flex-1 overflow-hidden flex justify-end [mask-image:linear-gradient(to_right,transparent,black_25%,black_85%,transparent)]">
+            <div className="animate-stream-left flex items-center gap-3.5 sm:gap-5 pr-4">
+              {repeatedStream.map((item, idx) => (
+                <div
+                  key={`left-${idx}`}
+                  className={`${item.bg} flex size-12 sm:size-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 p-2.5 shadow-sm transition-transform hover:scale-110`}
+                  title={item.name}
+                >
+                  <img alt={item.name} className="size-full object-contain" src={item.icon} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Central Official P Logo receiving the tools */}
+          <div className="relative z-10 mx-2 sm:mx-6 shrink-0">
+            {/* Spinning decorative ring */}
+            <div className="animate-spin-slow pointer-events-none absolute -inset-2.5 rounded-full border-2 border-dashed border-teal-500/40" />
+            
+            {/* Center P Badge */}
+            <div className="animate-center-pulse relative flex size-16 sm:size-20 items-center justify-center rounded-3xl bg-slate-950 p-2 shadow-2xl ring-4 ring-white">
+              <img
+                alt="PÏ€emium-IT Official Brand Icon"
+                className="size-full object-contain"
+                src="./brand/premium-it-logo.png"
+              />
+            </div>
+          </div>
+
+          {/* Right tools streaming inward toward the center logo */}
+          <div className="flex-1 overflow-hidden flex justify-start [mask-image:linear-gradient(to_left,transparent,black_25%,black_85%,transparent)]">
+            <div className="animate-stream-right flex items-center gap-3.5 sm:gap-5 pl-4">
+              {repeatedStream.map((item, idx) => (
+                <div
+                  key={`right-${idx}`}
+                  className={`${item.bg} flex size-12 sm:size-14 shrink-0 items-center justify-center rounded-2xl border border-slate-200/80 p-2.5 shadow-sm transition-transform hover:scale-110`}
+                  title={item.name}
+                >
+                  <img alt={item.name} className="size-full object-contain" src={item.icon} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HomePage({ navigate }: { navigate: (page: Page) => void }) {
   return (
     <main>
@@ -335,6 +410,8 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
           </div>
         </div>
       </section>
+
+      <ToolsFlowBanner />
 
       <section className="border-y border-slate-300 bg-slate-200 py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
