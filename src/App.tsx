@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+﻿import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 
 type Page = "home" | "products" | "reviews";
 
@@ -126,14 +126,14 @@ function Brand({ light = false, compact = false }: { light?: boolean; compact?: 
     <div className="flex items-center gap-3">
       <span className="relative block size-10 shrink-0 overflow-hidden rounded-xl bg-slate-950 ring-1 ring-white/10 shadow-md">
         <img
-          alt="Pπemium-IT official logo"
+          alt="PÏ€emium-IT official logo"
           className="official-logo-image"
           src="/brand/premium-it-official.jpeg"
         />
       </span>
       <div className={compact ? "hidden sm:block" : ""}>
         <p className={`text-lg font-extrabold tracking-tight ${light ? "text-white" : "text-slate-950"}`}>
-          Pπemium-IT
+          PÏ€emium-IT
         </p>
         <p className={`text-xs font-semibold ${light ? "text-teal-400" : "text-teal-700"}`}>
           Premium digital services
@@ -206,7 +206,7 @@ function ContactStrip() {
   const contacts = [
     {
       label: "Facebook",
-      value: "Pπemium-IT",
+      value: "PÏ€emium-IT",
       href: "https://www.facebook.com/premiumit2.0",
       icon: "https://cdn.simpleicons.org/facebook/ffffff",
       color: "bg-blue-600",
@@ -240,7 +240,7 @@ function ContactStrip() {
         <div className="mb-8 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Always Connected</p>
-            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">কথা বলুন আমাদের সাথে</h2>
+            <h2 className="mt-2 text-2xl font-black text-white sm:text-3xl">à¦•à¦¥à¦¾ à¦¬à¦²à§à¦¨ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à¦¾à¦¥à§‡</h2>
           </div>
           <p className="text-sm font-medium text-slate-400">Click any channel to connect instantly</p>
         </div>
@@ -287,8 +287,8 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
               <span className="block text-teal-600">Smarter possibilities.</span>
             </h1>
             <p className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-slate-600">
-              AI, writing, design, editing ও entertainment-এর প্রয়োজনীয় premium digital services এখন এক
-              জায়গায়—সহজ অর্ডার, দ্রুত ডেলিভারি ও সাশ্রয়ী মূল্যে।
+              AI, writing, design, editing à¦“ entertainment-à¦à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨à§€à§Ÿ premium digital services à¦à¦–à¦¨ à¦à¦•
+              à¦œà¦¾à§Ÿà¦—à¦¾à§Ÿâ€”à¦¸à¦¹à¦œ à¦…à¦°à§à¦¡à¦¾à¦°, à¦¦à§à¦°à§à¦¤ à¦¡à§‡à¦²à¦¿à¦­à¦¾à¦°à¦¿ à¦“ à¦¸à¦¾à¦¶à§à¦°à§Ÿà§€ à¦®à§‚à¦²à§à¦¯à§‡à¥¤
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <AppLink
@@ -299,7 +299,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
                 Explore products <ArrowIcon />
               </AppLink>
               <AppLink
-                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Pπemium-IT, I need help choosing a product.")}`}
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PÏ€emium-IT, I need help choosing a product.")}`}
                 className="inline-flex items-center gap-2.5 rounded-full border-2 border-slate-300 bg-white px-7 py-3.5 text-sm font-black text-slate-800 shadow-sm transition-all duration-300 hover:border-slate-950 hover:bg-slate-50 active:scale-95"
               >
                 Chat on WhatsApp
@@ -322,7 +322,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
                 <div className="flex items-center justify-between">
                   <Brand />
                   <span className="rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1.5 text-xs font-black text-emerald-700">
-                    ● Online
+                    â— Online
                   </span>
                 </div>
                 <div className="my-8 grid grid-cols-3 gap-3">
@@ -335,7 +335,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
                 <div className="rounded-2xl bg-slate-50 p-5 border border-slate-100">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Starting from</p>
                   <div className="mt-1 flex items-end justify-between">
-                    <p className="text-3xl font-black text-slate-950">৳250</p>
+                    <p className="text-3xl font-black text-slate-950">à§³250</p>
                     <p className="text-xs sm:text-sm font-black text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">9+ Premium Tools</p>
                   </div>
                 </div>
@@ -347,24 +347,24 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
 
       {/* Reserved Slot for the User's upcoming Marquee / Hero animation */}
       <div id="animation-banner-slot" className="w-full">
-        {/* Placeholder slot kept empty as instructed: "ঐ জায়গাটা খালি রাখবা, আমি পরে বলবো ঐ অ্যানিমেশনটা কিরকম হবে।" */}
+        {/* Placeholder slot kept empty as instructed: "à¦ à¦œà¦¾à§Ÿà¦—à¦¾à¦Ÿà¦¾ à¦–à¦¾à¦²à¦¿ à¦°à¦¾à¦–à¦¬à¦¾, à¦†à¦®à¦¿ à¦ªà¦°à§‡ à¦¬à¦²à¦¬à§‹ à¦ à¦…à§à¦¯à¦¾à¦¨à¦¿à¦®à§‡à¦¶à¦¨à¦Ÿà¦¾ à¦•à¦¿à¦°à¦•à¦® à¦¹à¦¬à§‡à¥¤" */}
       </div>
 
       <section className="border-y border-slate-300 bg-slate-200/90 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-12 max-w-2xl">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Why Pπemium-IT</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Why PÏ€emium-IT</p>
             <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
-              ভরসার সাথে ডিজিটাল সার্ভিস
+              à¦­à¦°à¦¸à¦¾à¦° à¦¸à¦¾à¦¥à§‡ à¦¡à¦¿à¦œà¦¿à¦Ÿà¦¾à¦² à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              আপনার প্রয়োজন বুঝে সঠিক product বেছে নিতে আমরা পাশে আছি—অর্ডারের আগে ও পরে সার্বক্ষণিক সহায়তা পাবেন।
+              à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦¬à§à¦à§‡ à¦¸à¦ à¦¿à¦• product à¦¬à§‡à¦›à§‡ à¦¨à¦¿à¦¤à§‡ à¦†à¦®à¦°à¦¾ à¦ªà¦¾à¦¶à§‡ à¦†à¦›à¦¿â€”à¦…à¦°à§à¦¡à¦¾à¦°à§‡à¦° à¦†à¦—à§‡ à¦“ à¦ªà¦°à§‡ à¦¸à¦¾à¦°à§à¦¬à¦•à§à¦·à¦£à¦¿à¦• à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾ à¦ªà¦¾à¦¬à§‡à¦¨à¥¤
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
-            <TrustCard number="01" title="Straightforward pricing" copy="পরিষ্কার মূল্য ও সহজ অর্ডার প্রক্রিয়া—কোনো লুকানো চার্জ বা জটিলতা নেই।" />
-            <TrustCard number="02" title="Responsive support" copy="Product নির্বাচন বা যেকোনো টেকনিক্যাল প্রশ্নে WhatsApp-এ দ্রুত কার্যকর সহায়তা।" />
-            <TrustCard number="03" title="Customer-first service" copy="প্রতিটি অর্ডারে যত্ন, সৎ যোগাযোগ এবং দীর্ঘমেয়াদি গ্রাহক আস্থাই আমাদের মূল লক্ষ্য।" />
+            <TrustCard number="01" title="Straightforward pricing" copy="à¦ªà¦°à¦¿à¦·à§à¦•à¦¾à¦° à¦®à§‚à¦²à§à¦¯ à¦“ à¦¸à¦¹à¦œ à¦…à¦°à§à¦¡à¦¾à¦° à¦ªà§à¦°à¦•à§à¦°à¦¿à§Ÿà¦¾â€”à¦•à§‹à¦¨à§‹ à¦²à§à¦•à¦¾à¦¨à§‹ à¦šà¦¾à¦°à§à¦œ à¦¬à¦¾ à¦œà¦Ÿà¦¿à¦²à¦¤à¦¾ à¦¨à§‡à¦‡à¥¤" />
+            <TrustCard number="02" title="Responsive support" copy="Product à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦¬à¦¾ à¦¯à§‡à¦•à§‹à¦¨à§‹ à¦Ÿà§‡à¦•à¦¨à¦¿à¦•à§à¦¯à¦¾à¦² à¦ªà§à¦°à¦¶à§à¦¨à§‡ WhatsApp-à¦ à¦¦à§à¦°à§à¦¤ à¦•à¦¾à¦°à§à¦¯à¦•à¦° à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾à¥¤" />
+            <TrustCard number="03" title="Customer-first service" copy="à¦ªà§à¦°à¦¤à¦¿à¦Ÿà¦¿ à¦…à¦°à§à¦¡à¦¾à¦°à§‡ à¦¯à¦¤à§à¦¨, à¦¸à§Ž à¦¯à§‹à¦—à¦¾à¦¯à§‹à¦— à¦à¦¬à¦‚ à¦¦à§€à¦°à§à¦˜à¦®à§‡à§Ÿà¦¾à¦¦à¦¿ à¦—à§à¦°à¦¾à¦¹à¦• à¦†à¦¸à§à¦¥à¦¾à¦‡ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦®à§‚à¦² à¦²à¦•à§à¦·à§à¦¯à¥¤" />
           </div>
         </div>
       </section>
@@ -375,7 +375,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
 
 function ProductCard({ product }: { product: Product }) {
   const message = encodeURIComponent(
-    `Hello Pπemium-IT, I want to order ${product.name} for ${product.price} BDT. Please share the details.`,
+    `Hello PÏ€emium-IT, I want to order ${product.name} for ${product.price} BDT. Please share the details.`,
   );
 
   return (
@@ -387,7 +387,7 @@ function ProductCard({ product }: { product: Product }) {
           </div>
           {product.popular ? (
             <span className="rounded-full bg-teal-50 border border-teal-200 px-3 py-1 text-xs font-black text-teal-700">
-              Popular ★
+              Popular â˜…
             </span>
           ) : (
             <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500">
@@ -405,7 +405,7 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className="mt-6 pt-5 border-t border-slate-100">
         <div className="flex items-baseline gap-2">
-          <span className="text-3xl font-black tracking-tight text-slate-950">৳{product.price}</span>
+          <span className="text-3xl font-black tracking-tight text-slate-950">à§³{product.price}</span>
           <span className="text-xs font-bold uppercase tracking-wider text-slate-400">BDT</span>
         </div>
         <AppLink
@@ -428,10 +428,10 @@ function ProductsPage() {
           <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Exclusive Collection</p>
           <div className="mt-3 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <h1 className="max-w-2xl text-3xl font-black tracking-tight text-white sm:text-5xl">
-              আপনার প্রয়োজনের Premium Digital Products
+              à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨à§‡à¦° Premium Digital Products
             </h1>
             <p className="max-w-md text-sm sm:text-base leading-relaxed text-slate-400">
-              পছন্দের সার্ভিস নির্বাচন করুন। Order Now বাটনে চাপলে সরাসরি WhatsApp-এ বিস্তারিত সহ অর্ডার করতে পারবেন।
+              à¦ªà¦›à¦¨à§à¦¦à§‡à¦° à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦•à¦°à§à¦¨à¥¤ Order Now à¦¬à¦¾à¦Ÿà¦¨à§‡ à¦šà¦¾à¦ªà¦²à§‡ à¦¸à¦°à¦¾à¦¸à¦°à¦¿ WhatsApp-à¦ à¦¬à¦¿à¦¸à§à¦¤à¦¾à¦°à¦¿à¦¤ à¦¸à¦¹ à¦…à¦°à§à¦¡à¦¾à¦° à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à¦¬à§‡à¦¨à¥¤
             </p>
           </div>
         </div>
@@ -443,10 +443,10 @@ function ProductsPage() {
             {products.map((product) => <ProductCard key={product.name} product={product} />)}
           </div>
           <div className="mt-14 rounded-3xl border border-teal-200 bg-teal-50 p-8 text-center sm:p-10 shadow-sm">
-            <h2 className="text-2xl font-black text-slate-950">কোন product-টি আপনার জন্য সবচেয়ে ভালো হবে বুঝতে পারছেন না?</h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm sm:text-base text-slate-600">WhatsApp-এ আপনার প্রয়োজন জানান, আমরা সবচেয়ে সাশ্রয়ী ও উপযুক্ত অপশনটি বেছে দেব।</p>
+            <h2 className="text-2xl font-black text-slate-950">à¦•à§‹à¦¨ product-à¦Ÿà¦¿ à¦†à¦ªà¦¨à¦¾à¦° à¦œà¦¨à§à¦¯ à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦­à¦¾à¦²à§‹ à¦¹à¦¬à§‡ à¦¬à§à¦à¦¤à§‡ à¦ªà¦¾à¦°à¦›à§‡à¦¨ à¦¨à¦¾?</h2>
+            <p className="mx-auto mt-2 max-w-xl text-sm sm:text-base text-slate-600">WhatsApp-à¦ à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§Ÿà§‹à¦œà¦¨ à¦œà¦¾à¦¨à¦¾à¦¨, à¦†à¦®à¦°à¦¾ à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦¸à¦¾à¦¶à§à¦°à§Ÿà§€ à¦“ à¦‰à¦ªà¦¯à§à¦•à§à¦¤ à¦…à¦ªà¦¶à¦¨à¦Ÿà¦¿ à¦¬à§‡à¦›à§‡ à¦¦à§‡à¦¬à¥¤</p>
             <AppLink
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello Pπemium-IT, please help me choose the right product.")}`}
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hello PÏ€emium-IT, please help me choose the right product.")}`}
               className="animate-shine mt-6 inline-flex items-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 text-sm font-black text-white shadow-lg transition-all duration-300 hover:bg-teal-800 active:scale-95"
             >
               Get help on WhatsApp <ArrowIcon />
@@ -524,10 +524,10 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
           <p className="text-xs font-extrabold uppercase tracking-widest text-teal-400">Customer Feedback</p>
           <h1 className="mt-3 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-5xl">
-            আপনার অভিজ্ঞতা আমাদের সাথে শেয়ার করুন
+            à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à¦¾à¦¥à§‡ à¦¶à§‡à§Ÿà¦¾à¦° à¦•à¦°à§à¦¨
           </h1>
           <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-slate-400">
-            Pπemium-IT থেকে নেওয়া সার্ভিস ও প্রোডাক্ট সম্পর্কে আপনার সৎ মতামত লিখুন। আপনার মূল্যবান রিভিউ আমাদের সেবাকে আরো উন্নত করতে সহায়তা করে।
+            PÏ€emium-IT à¦¥à§‡à¦•à§‡ à¦¨à§‡à¦“à§Ÿà¦¾ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦“ à¦ªà§à¦°à§‹à¦¡à¦¾à¦•à§à¦Ÿ à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦¸à§Ž à¦®à¦¤à¦¾à¦®à¦¤ à¦²à¦¿à¦–à§à¦¨à¥¤ à¦†à¦ªà¦¨à¦¾à¦° à¦®à§‚à¦²à§à¦¯à¦¬à¦¾à¦¨ à¦°à¦¿à¦­à¦¿à¦‰ à¦†à¦®à¦¾à¦¦à§‡à¦° à¦¸à§‡à¦¬à¦¾à¦•à§‡ à¦†à¦°à§‹ à¦‰à¦¨à§à¦¨à¦¤ à¦•à¦°à¦¤à§‡ à¦¸à¦¹à¦¾à§Ÿà¦¤à¦¾ à¦•à¦°à§‡à¥¤
           </p>
         </div>
       </section>
@@ -537,15 +537,15 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
           <div className="lg:col-span-2">
             <div className="sticky top-28 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
               <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Write a Review</p>
-              <h2 className="mt-1 text-2xl font-black text-slate-950">আপনার Review দিন</h2>
+              <h2 className="mt-1 text-2xl font-black text-slate-950">à¦†à¦ªà¦¨à¦¾à¦° Review à¦¦à¦¿à¦¨</h2>
               <form className="mt-6 space-y-4" onSubmit={submitReview}>
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">আপনার নাম</span>
+                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">à¦†à¦ªà¦¨à¦¾à¦° à¦¨à¦¾à¦®</span>
                   <input
                     className="w-full rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
                     maxLength={50}
                     onChange={(event) => setName(event.target.value)}
-                    placeholder="আপনার নাম লিখুন"
+                    placeholder="à¦†à¦ªà¦¨à¦¾à¦° à¦¨à¦¾à¦® à¦²à¦¿à¦–à§à¦¨"
                     required
                     type="text"
                     value={name}
@@ -585,12 +585,12 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </fieldset>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">আপনার মতামত</span>
+                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-slate-600">à¦†à¦ªà¦¨à¦¾à¦° à¦®à¦¤à¦¾à¦®à¦¤</span>
                   <textarea
                     className="min-h-28 w-full resize-y rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-100"
                     maxLength={500}
                     onChange={(event) => setMessage(event.target.value)}
-                    placeholder="Product ও সার্ভিস সম্পর্কে আপনার অভিজ্ঞতা লিখুন..."
+                    placeholder="Product à¦“ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦²à¦¿à¦–à§à¦¨..."
                     required
                     value={message}
                   />
@@ -604,7 +604,7 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 </button>
                 {submitted && (
                   <p className="rounded-xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-xs sm:text-sm font-bold text-emerald-700" role="status">
-                    ধন্যবাদ! আপনার review সফলভাবে যুক্ত হয়েছে।
+                    à¦§à¦¨à§à¦¯à¦¬à¦¾à¦¦! à¦†à¦ªà¦¨à¦¾à¦° review à¦¸à¦«à¦²à¦­à¦¾à¦¬à§‡ à¦¯à§à¦•à§à¦¤ à¦¹à§Ÿà§‡à¦›à§‡à¥¤
                   </p>
                 )}
               </form>
@@ -615,7 +615,7 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
             <div className="mb-6 flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-extrabold uppercase tracking-widest text-teal-700">Community Reviews</p>
-                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-slate-950">গ্রাহকদের প্রতিক্রিয়া</h2>
+                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-slate-950">à¦—à§à¦°à¦¾à¦¹à¦•à¦¦à§‡à¦° à¦ªà§à¦°à¦¤à¦¿à¦•à§à¦°à¦¿à¦¯à¦¼à¦¾</h2>
               </div>
               <span className="rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs sm:text-sm font-black text-slate-700 shadow-sm">
                 {reviews.length} {reviews.length === 1 ? "review" : "reviews"}
@@ -631,9 +631,9 @@ function ReviewsPage({ reviews, onAddReview }: { reviews: Review[]; onAddReview:
                 <div className="mx-auto flex w-fit gap-1 text-amber-400">
                   {[1, 2, 3, 4, 5].map((star) => <StarIcon key={star} filled />)}
                 </div>
-                <h3 className="mt-4 text-xl font-black text-slate-950">প্রথম Review দিন!</h3>
+                <h3 className="mt-4 text-xl font-black text-slate-950">à¦ªà§à¦°à¦¥à¦® Review à¦¦à¦¿à¦¨!</h3>
                 <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600">
-                  বাম পাশের ফর্মটি পূরণ করে Pπemium-IT সম্পর্কে আপনার অভিজ্ঞতা শেয়ার করুন।
+                  à¦¬à¦¾à¦® à¦ªà¦¾à¦¶à§‡à¦° à¦«à¦°à§à¦®à¦Ÿà¦¿ à¦ªà§‚à¦°à¦£ à¦•à¦°à§‡ PÏ€emium-IT à¦¸à¦®à§à¦ªà¦°à§à¦•à§‡ à¦†à¦ªà¦¨à¦¾à¦° à¦…à¦­à¦¿à¦œà§à¦žà¦¤à¦¾ à¦¶à§‡à§Ÿà¦¾à¦° à¦•à¦°à§à¦¨à¥¤
                 </p>
               </div>
             )}
@@ -661,7 +661,7 @@ function Footer({ navigate }: { navigate: (page: Page) => void }) {
               <Brand light />
             </AppLink>
             <p className="mt-4 max-w-sm text-xs sm:text-sm leading-relaxed text-slate-400">
-              Bangladesh-এর সবচেয়ে বিশ্বস্ত ডিজিটাল সার্ভিস ও প্রিমিয়াম টুলস শপ। ২৪/৭ কাস্টমার সাপোর্ট ও সাশ্রয়ী মূল্য।
+              Bangladesh-à¦à¦° à¦¸à¦¬à¦šà§‡à§Ÿà§‡ à¦¬à¦¿à¦¶à§à¦¬à¦¸à§à¦¤ à¦¡à¦¿à¦œà¦¿à¦Ÿà¦¾à¦² à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦“ à¦ªà§à¦°à¦¿à¦®à¦¿à¦¯à¦¼à¦¾à¦® à¦Ÿà§à¦²à¦¸ à¦¶à¦ªà¥¤ à§¨à§ª/à§­ à¦•à¦¾à¦¸à§à¦Ÿà¦®à¦¾à¦° à¦¸à¦¾à¦ªà§‹à¦°à§à¦Ÿ à¦“ à¦¸à¦¾à¦¶à§à¦°à¦¯à¦¼à§€ à¦®à§‚à¦²à§à¦¯à¥¤
             </p>
           </div>
 
@@ -713,7 +713,7 @@ function Footer({ navigate }: { navigate: (page: Page) => void }) {
 
         {/* Bottom copyright line */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-900 pt-8 sm:flex-row text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Pπemium-IT. All rights reserved.</p>
+          <p>Â© {new Date().getFullYear()} PÏ€emium-IT. All rights reserved.</p>
           <p className="text-slate-400 font-medium">Delivering Premium Digital Experiences across Bangladesh</p>
         </div>
       </div>
@@ -741,7 +741,7 @@ export default function App() {
         name: "Tanvir Ahmed",
         product: "ChatGPT Plus",
         rating: 5,
-        message: "খুব দ্রুত ChatGPT Plus এক্টিভ করে দিয়েছেন। সার্ভিস অত্যন্ত চমৎকার!",
+        message: "à¦–à§à¦¬ à¦¦à§à¦°à§à¦¤ ChatGPT Plus à¦à¦•à§à¦Ÿà¦¿à¦­ à¦•à¦°à§‡ à¦¦à¦¿à§Ÿà§‡à¦›à§‡à¦¨à¥¤ à¦¸à¦¾à¦°à§à¦­à¦¿à¦¸ à¦…à¦¤à§à¦¯à¦¨à§à¦¤ à¦šà¦®à§Žà¦•à¦¾à¦°!",
         date: "28 Oct 2026",
       },
       {
@@ -749,7 +749,7 @@ export default function App() {
         name: "Farhan Hossain",
         product: "Grammarly Premium",
         rating: 5,
-        message: "Grammarly ঠিকভাবে কাজ করছে। সাপোর্ট অনেক আন্তরিক ও দ্রুত।",
+        message: "Grammarly à¦ à¦¿à¦•à¦­à¦¾à¦¬à§‡ à¦•à¦¾à¦œ à¦•à¦°à¦›à§‡à¥¤ à¦¸à¦¾à¦ªà§‹à¦°à§à¦Ÿ à¦…à¦¨à§‡à¦• à¦†à¦¨à§à¦¤à¦°à¦¿à¦• à¦“ à¦¦à§à¦°à§à¦¤à¥¤",
         date: "26 Oct 2026",
       },
       {
@@ -757,7 +757,7 @@ export default function App() {
         name: "Shakil Khan",
         product: "CapCut Pro",
         rating: 5,
-        message: "CapCut Pro দিয়ে কোনো ল্যাগ ছাড়া এডিট করতে পারছি। ট্রাস্টেড শপ!",
+        message: "CapCut Pro à¦¦à¦¿à§Ÿà§‡ à¦•à§‹à¦¨à§‹ à¦²à§à¦¯à¦¾à¦— à¦›à¦¾à§œà¦¾ à¦à¦¡à¦¿à¦Ÿ à¦•à¦°à¦¤à§‡ à¦ªà¦¾à¦°à¦›à¦¿à¥¤ à¦Ÿà§à¦°à¦¾à¦¸à§à¦Ÿà§‡à¦¡ à¦¶à¦ª!",
         date: "24 Oct 2026",
       },
     ];
@@ -798,3 +798,4 @@ export default function App() {
     </div>
   );
 }
+
