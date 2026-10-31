@@ -376,7 +376,7 @@ function RoleSwitcher() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % roles.length);
-    }, 2400);
+    }, 2500);
     return () => clearInterval(timer);
   }, [roles.length]);
 
@@ -384,8 +384,11 @@ function RoleSwitcher() {
     <div className="mb-6 flex flex-wrap items-center gap-2.5 text-base sm:text-lg font-bold text-slate-600">
       <span className="text-slate-500 font-semibold">Built for every</span>
       <div className="border-beam-container shadow-md">
-        <div className="border-beam-inner flex min-w-[150px] sm:min-w-[180px] items-center justify-center px-6 py-2 sm:py-2.5 transition-all">
-          <span className="text-slate-950 font-black tracking-tight text-lg sm:text-xl transition-all duration-300">
+        <div className="border-beam-inner flex min-w-[150px] sm:min-w-[185px] items-center justify-center px-6 py-2 sm:py-2.5 overflow-hidden">
+          <span
+            key={roles[index]}
+            className="animate-text-flip-in inline-block text-slate-950 font-black tracking-tight text-lg sm:text-xl"
+          >
             {roles[index]}
           </span>
         </div>
@@ -442,7 +445,7 @@ function HomePage({ navigate }: { navigate: (page: Page) => void }) {
 
           <div className="relative mx-auto w-full max-w-lg">
             <div className="absolute -inset-4 -z-10 rounded-full bg-teal-100 blur-3xl" />
-            <div className="rotate-2 rounded-4xl bg-slate-950 p-5 shadow-2xl transition-all duration-500 hover:rotate-0 hover:scale-[1.02] hover:shadow-teal-950/40">
+            <div className="animate-mobile-card-motion rounded-4xl bg-slate-950 p-5 shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-teal-950/40">
               <div className="rounded-3xl bg-white p-6 sm:p-8">
                 <div className="flex items-center justify-between">
                   <Brand />
