@@ -275,7 +275,6 @@ function ToolsFlowBanner() {
     { name: "Netflix", icon: "https://cdn.simpleicons.org/netflix/E50914", bg: "bg-red-50" },
   ];
 
-  // For left side, reversed so items glide seamlessly into P without gap
   const reversedIcons = [...streamIcons].reverse();
   const leftTrack = [
     ...reversedIcons,
@@ -296,8 +295,8 @@ function ToolsFlowBanner() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="relative flex items-center justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white/80 py-5 sm:py-6 shadow-sm backdrop-blur-md">
           
-          {/* Left Wing: Packed from the center P icon to the left, seamlessly gliding right into P */}
-          <div className="w-1/2 overflow-hidden flex justify-end [mask-image:linear-gradient(to_right,transparent,black_20%,black_100%)]">
+          {/* Left Wing: Cards gliding right and spinning, absorbing into center P with mask fade & scale */}
+          <div className="w-1/2 overflow-hidden flex justify-end [mask-image:linear-gradient(to_right,transparent,black_15%,black_82%,rgba(0,0,0,0.15)_96%,transparent_100%)]">
             <div className="animate-inflow-left flex items-center gap-3.5 sm:gap-5 pr-2">
               {leftTrack.map((item, idx) => (
                 <div
@@ -305,20 +304,27 @@ function ToolsFlowBanner() {
                   className={`${item.bg} flex size-11 sm:size-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200/90 p-2 shadow-sm transition-transform hover:scale-110`}
                   title={item.name}
                 >
-                  <img alt={item.name} className="size-full object-contain" src={item.icon} />
+                  <img
+                    alt={item.name}
+                    className="animate-spin-clockwise size-full object-contain"
+                    src={item.icon}
+                  />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Stable Center Brand P Icon receiving tools from both flanks */}
+          {/* Stable Center Brand P Icon with subtle gravitational absorption boundary */}
           <div className="relative z-30 shrink-0 flex items-center justify-center mx-1 sm:mx-2">
-            {/* Soft glowing aura behind the icon */}
+            {/* Soft magnetic glow aura */}
             <div className="pointer-events-none absolute size-24 rounded-full bg-teal-400/35 blur-xl" />
             
-            {/* Spinning decorative ring */}
+            {/* Spinning decorative orbit ring */}
             <div className="animate-spin-slow pointer-events-none absolute size-15 sm:size-17 rounded-full border border-dashed border-teal-500/60" />
             
+            {/* Absorption Event Horizon Ring */}
+            <div className="pointer-events-none absolute size-14 sm:size-16 rounded-full bg-teal-500/15 blur-sm" />
+
             {/* Center P Icon Badge */}
             <div className="animate-center-pulse relative flex size-12 sm:size-14 items-center justify-center rounded-2xl bg-slate-950 p-1.5 shadow-2xl ring-4 ring-white">
               <img
@@ -329,8 +335,8 @@ function ToolsFlowBanner() {
             </div>
           </div>
 
-          {/* Right Wing: Packed from the center P icon to the right, seamlessly gliding left into P */}
-          <div className="w-1/2 overflow-hidden flex justify-start [mask-image:linear-gradient(to_left,transparent,black_20%,black_100%)]">
+          {/* Right Wing: Cards gliding left and spinning, absorbing into center P with mask fade & scale */}
+          <div className="w-1/2 overflow-hidden flex justify-start [mask-image:linear-gradient(to_left,transparent,black_15%,black_82%,rgba(0,0,0,0.15)_96%,transparent_100%)]">
             <div className="animate-inflow-right flex items-center gap-3.5 sm:gap-5 pl-2">
               {rightTrack.map((item, idx) => (
                 <div
@@ -338,7 +344,11 @@ function ToolsFlowBanner() {
                   className={`${item.bg} flex size-11 sm:size-12 shrink-0 items-center justify-center rounded-2xl border border-slate-200/90 p-2 shadow-sm transition-transform hover:scale-110`}
                   title={item.name}
                 >
-                  <img alt={item.name} className="size-full object-contain" src={item.icon} />
+                  <img
+                    alt={item.name}
+                    className="animate-spin-counter size-full object-contain"
+                    src={item.icon}
+                  />
                 </div>
               ))}
             </div>

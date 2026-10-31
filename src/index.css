@@ -82,7 +82,6 @@ a {
 }
 
 /* Perfect Seamless Dual Inward Marquee Flow */
-/* Left side: Starts with 0 right offset (touching P icon immediately) and smoothly glides to the right into P */
 @keyframes left-inward-flow {
   0% {
     transform: translateX(0);
@@ -99,7 +98,6 @@ a {
   will-change: transform;
 }
 
-/* Right side: Starts right at 0 offset (touching P icon immediately) and smoothly glides to the left into P */
 @keyframes right-inward-flow {
   0% {
     transform: translateX(0);
@@ -116,15 +114,42 @@ a {
   will-change: transform;
 }
 
+/* Continuous self-rotation for moving icons */
+@keyframes card-spin-clockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes card-spin-counter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-clockwise {
+  animation: card-spin-clockwise 7s linear infinite;
+}
+
+.animate-spin-counter {
+  animation: card-spin-counter 7s linear infinite;
+}
+
 /* Central subtle pulse for P icon */
 @keyframes center-pulse-glow {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 15px rgba(13, 148, 136, 0.35), 0 0 30px rgba(13, 148, 136, 0.2);
+    box-shadow: 0 0 18px rgba(13, 148, 136, 0.4), 0 0 35px rgba(13, 148, 136, 0.25);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(13, 148, 136, 0.55), 0 0 45px rgba(13, 148, 136, 0.3);
+    box-shadow: 0 0 28px rgba(13, 148, 136, 0.65), 0 0 55px rgba(13, 148, 136, 0.35);
   }
 }
 
