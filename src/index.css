@@ -81,20 +81,38 @@ a {
   animation: number-blink 0.7s ease-in-out infinite alternate;
 }
 
-/* True Seamless Infinite Marquee Track (Left to Right / Inflow) */
-@keyframes continuous-marquee {
+/* Continuous dual inflow towards center P icon without any blank gap */
+/* Left side: moves rightwards towards center */
+@keyframes left-inflow-seamless {
   0% {
-    transform: translateX(0);
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-inflow-left {
+  display: flex;
+  width: max-content;
+  animation: left-inflow-seamless 20s linear infinite;
+  will-change: transform;
+}
+
+/* Right side: moves leftwards towards center */
+@keyframes right-inflow-seamless {
+  0% {
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
   }
 }
 
-.animate-marquee-infinite {
+.animate-inflow-right {
   display: flex;
   width: max-content;
-  animation: continuous-marquee 28s linear infinite;
+  animation: right-inflow-seamless 20s linear infinite;
   will-change: transform;
 }
 
