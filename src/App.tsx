@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { OPENAI_ICON, CLAUDE_ICON, CAPCUT_ICON, QUILLBOT_ICON } from "./productIcons";
 
 type Page = "home" | "products" | "reviews";
 
@@ -25,7 +26,7 @@ const products: Product[] = [
   {
     name: "ChatGPT Plus",
     price: 450,
-    icon: "./logos/openai.svg",
+    icon: OPENAI_ICON,
     accent: "bg-emerald-50",
     description: "Advanced AI access for smarter writing, research, and everyday productivity.",
   },
@@ -60,21 +61,21 @@ const products: Product[] = [
   {
     name: "QuillBot",
     price: 250,
-    icon: "./logos/quillbot.svg",
+    icon: QUILLBOT_ICON,
     accent: "bg-teal-50",
     description: "Paraphrase, summarize, and improve your writing in less time.",
   },
   {
     name: "Claude Pro",
     price: 999,
-    icon: "./logos/claude.svg",
+    icon: CLAUDE_ICON,
     accent: "bg-rose-50",
     description: "Creative tools for design, photo editing, video, and professional content.",
   },
   {
     name: "CapCut Pro",
     price: 699,
-    icon: "./logos/capcut.svg",
+    icon: CAPCUT_ICON,
     accent: "bg-slate-100",
     description: "Create polished videos with premium effects, templates, and editing tools.",
   },
@@ -264,14 +265,14 @@ function ContactStrip() {
 
 function ToolsFlowBanner() {
   const streamIcons = [
-    { name: "ChatGPT", icon: "./logos/openai.svg", bg: "bg-emerald-50" },
+    { name: "ChatGPT", icon: OPENAI_ICON, bg: "bg-emerald-50" },
     { name: "Gemini", icon: "https://cdn.simpleicons.org/googlegemini/8E75F7", bg: "bg-violet-50" },
     { name: "SuperGrok", icon: "https://cdn.simpleicons.org/x/111827", bg: "bg-slate-100" },
     { name: "StealthWriter", icon: "https://cdn.simpleicons.org/writedotas/2563EB", bg: "bg-blue-50" },
     { name: "Grammarly", icon: "https://cdn.simpleicons.org/grammarly/15C39A", bg: "bg-emerald-50" },
-    { name: "QuillBot", icon: "./logos/quillbot.svg", bg: "bg-teal-50" },
-    { name: "Claude Pro", icon: "./logos/claude.svg", bg: "bg-rose-50" },
-    { name: "CapCut Pro", icon: "./logos/capcut.svg", bg: "bg-slate-100" },
+    { name: "QuillBot", icon: QUILLBOT_ICON, bg: "bg-teal-50" },
+    { name: "Claude Pro", icon: CLAUDE_ICON, bg: "bg-rose-50" },
+    { name: "CapCut Pro", icon: CAPCUT_ICON, bg: "bg-slate-100" },
     { name: "Netflix", icon: "https://cdn.simpleicons.org/netflix/E50914", bg: "bg-red-50" },
   ];
 
